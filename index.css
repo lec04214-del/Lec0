@@ -11,13 +11,33 @@ body {
   overflow-x: hidden;
 }
 
-/* ======================
-   FLOATING MENU BUTTON
-====================== */
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #fff;
+  padding: 20px 25px;
+  z-index: 3000;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.header h2 {
+  font-size: 22px;
+}
+
+.header p {
+  font-size: 14px;
+  color: #475569;
+}
+
+/* MENU BUTTON */
 .menu-btn {
   position: fixed;
-  top: 12px;
-  left: 12px;
+  top: 92px;
+  left: 14px;
   font-size: 18px;
   background: #0f172a;
   color: #fff;
@@ -27,9 +47,7 @@ body {
   z-index: 4000;
 }
 
-/* ======================
-   OVERLAY
-====================== */
+/* OVERLAY */
 .overlay {
   position: fixed;
   inset: 0;
@@ -45,23 +63,19 @@ body {
   visibility: visible;
 }
 
-/* ======================
-   DASHBOARD
-====================== */
+/* DASHBOARD */
 .dashboard {
   display: flex;
   min-height: 100vh;
 }
 
-/* ======================
-   SIDEBAR (LOWERED)
-====================== */
+/* SIDEBAR */
 .sidebar {
   width: 260px;
   background: #0f172a;
   color: #fff;
   position: fixed;
-  top: 80px;                 /* 🔽 pushed lower */
+  top: 80px;
   height: calc(100vh - 80px);
   overflow-y: auto;
   transform: translateX(-100%);
@@ -91,14 +105,12 @@ body {
   color: #fff;
 }
 
-/* ======================
-   MAIN
-====================== */
+/* MAIN */
 .main {
   margin-left: 260px;
   padding: 25px;
+  padding-top: 130px;
   width: 100%;
-  padding-top: 110px;        /* 🔼 space for floating header */
 }
 
 @media (max-width: 768px) {
@@ -107,37 +119,7 @@ body {
   }
 }
 
-/* ======================
-   FLOATING HEADER (RIGHT → LEFT EDGE)
-====================== */
-.header {
-  position: fixed;
-  top: 0;
-  right: 0;                  /* starts from right */
-  left: 0;                   /* stretches to left edge */
-  background: #ffffff;
-  padding: 20px 25px;
-  height: 80px;
-  z-index: 3000;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.header h2,
-.header h1 {
-  font-size: 22px;
-}
-
-.header p {
-  font-size: 14px;
-  color: #475569;
-}
-
-/* ======================
-   HERO SECTION
-====================== */
+/* HERO */
 .hero {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: #fff;
@@ -164,27 +146,21 @@ body {
 }
 
 .hero-images img {
-  width: 100%;
   max-width: 180px;
+  width: 100%;
   border-radius: 12px;
   animation: float 5s ease-in-out infinite;
 }
 
-.hero-images img:nth-child(2) {
-  animation-delay: 1s;
-}
-.hero-images img:nth-child(3) {
-  animation-delay: 2s;
-}
+.hero-images img:nth-child(2) { animation-delay: 1s; }
+.hero-images img:nth-child(3) { animation-delay: 2s; }
 
 @keyframes float {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-/* ======================
-   CARDS
-====================== */
+/* CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -206,4 +182,34 @@ body {
 
 .card-content {
   padding: 18px;
-  }
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 40px;
+  padding: 30px 20px;
+  background: #020617;
+  color: #cbd5f5;
+  text-align: center;
+  border-radius: 14px;
+}
+
+.social-links {
+  margin: 15px 0;
+}
+
+.social-links a {
+  color: #38bdf8;
+  margin: 0 10px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
+
+.footer .copyright {
+  font-size: 13px;
+  color: #94a3b8;
+}
