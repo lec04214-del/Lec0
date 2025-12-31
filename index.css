@@ -301,3 +301,10 @@ canvas {
     font-size: 14px;
   }
    }
+
+.visual-writeup {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+}
