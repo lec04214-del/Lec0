@@ -11,16 +11,16 @@ body {
   overflow-x: hidden;
 }
 
-/* MENU BUTTON */
+/* SMALLER MENU BUTTON (FIXED) */
 .menu-btn {
   position: fixed;
-  top: 15px;
-  left: 15px;
-  font-size: 22px;
+  top: 12px;
+  left: 12px;
+  font-size: 18px;           /* reduced */
   background: #0f172a;
   color: #fff;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 8px 10px;         /* reduced */
+  border-radius: 6px;
   cursor: pointer;
   z-index: 2000;
 }
@@ -127,20 +127,4 @@ body {
 
 .card-content {
   padding: 18px;
-}
-
-/* FOOTER */
-.footer {
-  margin-top: 40px;
-  background: #020617;
-  color: #cbd5f5;
-  padding: 25px;
-  text-align: center;
-  border-radius: 12px;
-}
-
-.social-links a {
-  color: #38bdf8;
-  margin: 0 10px;
-  font-size: 20px;
 }
