@@ -63,45 +63,38 @@
   </section>
 
 </main>
-  
-<script>
-/* ===== GLOBAL STATE ===== */
+
+  <script>
+/* ===== STATE ===== */
 let currentPage = 'dashboard';
-let sidebarOpen = false;
 
 /* ===== ELEMENTS ===== */
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('overlay');
 
-/* ===== INITIAL HISTORY LOCK ===== */
-history.replaceState({ page: 'dashboard' }, "", "#dashboard");
+/* ===== INITIAL STATE ===== */
+history.replaceState({ type: 'page', page: 'dashboard' }, '', '#dashboard');
 
 /* ===== SIDEBAR ===== */
 function toggleSidebar() {
   sidebar.classList.add('show');
   overlay.classList.add('show');
-  sidebarOpen = true;
 
-  history.pushState({ sidebar: true }, "");
+  history.pushState({ type: 'sidebar', page: currentPage }, '', '#menu');
 }
 
 function closeSidebar() {
   sidebar.classList.remove('show');
   overlay.classList.remove('show');
-  sidebarOpen = false;
 }
 
-/* ===== PAGE SWITCH ===== */
+/* ===== PAGE NAVIGATION ===== */
 function navigate(page) {
-  if (page === currentPage) {
-    closeSidebar();
-    return;
-  }
-
-  showPage(page);
-  history.pushState({ page }, ``, `#${page}`);
   currentPage = page;
+  showPage(page);
   closeSidebar();
+
+  history.pushState({ type: 'page', page }, '', `#${page}`);
 }
 
 /* ===== SHOW PAGE ===== */
@@ -121,26 +114,26 @@ function showPage(page) {
     ?.classList.add('active');
 }
 
-/* ===== BACK BUTTON (THE REAL FIX) ===== */
+/* ===== BACK BUTTON (CORRECT & FINAL) ===== */
 window.addEventListener('popstate', (e) => {
 
-  /* 1️⃣ If sidebar is open → close it */
-  if (sidebarOpen) {
-    closeSidebar();
-    return;
-  }
+  if (!e.state) return;
 
-  /* 2️⃣ If history state has page → go to it */
-  if (e.state && e.state.page) {
-    showPage(e.state.page);
+  /* If sidebar state → open sidebar */
+  if (e.state.type === 'sidebar') {
+    sidebar.classList.add('show');
+    overlay.classList.add('show');
     currentPage = e.state.page;
     return;
   }
 
-  /* 3️⃣ SAFETY: never exit site directly */
-  showPage('dashboard');
-  currentPage = 'dashboard';
-  history.pushState({ page: 'dashboard' }, "", "#dashboard");
+  /* If page state → show page */
+  if (e.state.type === 'page') {
+    closeSidebar();
+    showPage(e.state.page);
+    currentPage = e.state.page;
+    return;
+  }
 });
 
 /* ===== CHART ===== */
