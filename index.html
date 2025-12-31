@@ -11,11 +11,11 @@
 
 <body>
 
-<!-- MOBILE OVERLAY -->
-<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeSidebar(true)"></div>
 
-<!-- SMALLER HAMBURGER BUTTON -->
-<div class="menu-btn" onclick="toggleSidebar()">
+<!-- SMALL HAMBURGER -->
+<div class="menu-btn" onclick="openSidebar()">
   <i class="fas fa-bars"></i>
 </div>
 
@@ -24,7 +24,6 @@
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
     <h2>TPAO Petroleum</h2>
-
     <a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a>
     <a href="production.html"><i class="fas fa-industry"></i> Production</a>
     <a href="revenue.html"><i class="fas fa-dollar-sign"></i> Revenue</a>
@@ -32,18 +31,37 @@
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
   </aside>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main class="main">
 
+    <!-- FLOATING HERO (EXTREME TOP) -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>TPAO Petroleum Company</h1>
+        <p>
+          Powering global energy through innovation, operational excellence,
+          and responsible petroleum development.
+        </p>
+      </div>
+
+      <div class="hero-images">
+        <img src="https://images.unsplash.com/photo-1617957743094-8f69bdf9b9c4" alt="">
+        <img src="https://images.unsplash.com/photo-1601134467661-3c0b2fdd0a41" alt="">
+        <img src="https://images.unsplash.com/photo-1581091870627-3c5f2c1cfb34" alt="">
+      </div>
+    </section>
+
+    <!-- HEADER -->
     <header class="header">
-      <h1>TPAO Petroleum Company Dashboard</h1>
-      <p>Operational insights, production performance and corporate overview</p>
+      <h2>Dashboard Overview</h2>
+      <p>Operational insights and corporate performance snapshot</p>
     </header>
 
+    <!-- CARDS -->
     <section class="cards">
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1581091870627-3c5f2c1cfb34" alt="">
+        <img src="https://images.unsplash.com/photo-1581091870627-3c5f2c1cfb34">
         <div class="card-content">
           <h3>Company Overview</h3>
           <p>
@@ -54,7 +72,7 @@
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1601134467661-3c0b2fdd0a41" alt="">
+        <img src="https://images.unsplash.com/photo-1601134467661-3c0b2fdd0a41">
         <div class="card-content">
           <h3>Production Operations</h3>
           <p>
@@ -65,7 +83,7 @@
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c" alt="">
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c">
         <div class="card-content">
           <h3>Revenue Performance</h3>
           <p>
@@ -76,7 +94,7 @@
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1617957743094-8f69bdf9b9c4" alt="">
+        <img src="https://images.unsplash.com/photo-1617957743094-8f69bdf9b9c4">
         <div class="card-content">
           <h3>Oil Fields</h3>
           <p>
@@ -92,18 +110,32 @@
 </div>
 
 <script>
-function toggleSidebar() {
+let sidebarOpen = false;
+
+/* OPEN SIDEBAR + REGISTER HISTORY */
+function openSidebar() {
   document.getElementById("sidebar").classList.add("active");
   document.getElementById("overlay").classList.add("active");
+  sidebarOpen = true;
+  history.pushState({ sidebar: true }, "");
 }
 
-function closeSidebar() {
+/* CLOSE SIDEBAR */
+function closeSidebar(fromOverlay = false) {
   document.getElementById("sidebar").classList.remove("active");
   document.getElementById("overlay").classList.remove("active");
+  sidebarOpen = false;
+
+  if (fromOverlay) {
+    history.back();
+  }
 }
 
+/* PHONE BACK BUTTON = ONE TAP RETURN TO DASHBOARD */
 window.onpopstate = function () {
-  closeSidebar();
+  if (sidebarOpen) {
+    closeSidebar();
+  }
 };
 </script>
 
