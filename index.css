@@ -29,7 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 1200;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
@@ -37,32 +37,32 @@ body {
   font-size: 18px;
   font-weight: 700;
   text-align: center;
-  padding: 0 16px;
+  padding: 0 48px; /* space for menu button */
 }
 
 /* =========================
    MAIN LAYOUT OFFSET
 ========================= */
 .main {
-  padding-top: 80px; /* prevents header overlap */
+  padding-top: 80px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 /* =========================
-   MENU BUTTON
+   MENU BUTTON (FIXED)
 ========================= */
 .menu-btn {
   position: fixed;
-  top: 14px;
+  top: 16px;               /* centered inside header */
   left: 16px;
-  z-index: 1100;
+  z-index: 1300;           /* ABOVE header */
   font-size: 22px;
-  background: #1e293b;
+  background: transparent; /* cleaner look */
   color: #ffffff;
   border: none;
   border-radius: 6px;
-  padding: 8px 12px;
+  padding: 6px 10px;
   cursor: pointer;
 }
 
@@ -76,7 +76,7 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 900;
+  z-index: 1100;
 }
 
 #overlay.show {
@@ -89,7 +89,7 @@ body {
 ========================= */
 .sidebar {
   position: fixed;
-  top: 64px;
+  top: 64px; /* aligned with header */
   left: -260px;
   width: 260px;
   height: calc(100vh - 64px);
@@ -97,7 +97,7 @@ body {
   color: #ffffff;
   padding: 24px 16px;
   transition: left 0.3s ease;
-  z-index: 1001;
+  z-index: 1250;
 }
 
 .sidebar.show {
@@ -274,6 +274,6 @@ body {
   }
 
   .top-header h1 {
-    font-size: 15px;
+    font-size: 14px;
   }
-   }
+         }
