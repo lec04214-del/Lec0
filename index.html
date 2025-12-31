@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TPAO | Petroleum Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="logo">TPAO</div>
+    <nav>
+      <a class="active">Dashboard</a>
+      <a>Exploration</a>
+      <a>Production</a>
+      <a>Assets</a>
+      <a>Employees</a>
+      <a>Reports</a>
+      <a>Settings</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <h1>Petroleum Operations Overview</h1>
+      <div class="user">Admin Panel</div>
+    </header>
+
+    <section class="kpi">
+      <div class="kpi-card">
+        <h4>Daily Production</h4>
+        <p>145,000 <span>bbl/day</span></p>
+      </div>
+      <div class="kpi-card">
+        <h4>Annual Revenue</h4>
+        <p>$8.4 <span>Billion</span></p>
+      </div>
+      <div class="kpi-card">
+        <h4>Oil Reserves</h4>
+        <p>1.2 <span>Billion bbl</span></p>
+      </div>
+      <div class="kpi-card">
+        <h4>Total Employees</h4>
+        <p>12,500</p>
+      </div>
+    </section>
+
+    <section class="progress-section">
+      <h2>Operational Performance</h2>
+      <div class="progress-box">
+        <label>Field Utilization</label>
+        <div class="bar"><span style="width:82%"></span></div>
+      </div>
+      <div class="progress-box">
+        <label>Refinery Efficiency</label>
+        <div class="bar"><span style="width:74%"></span></div>
+      </div>
+      <div class="progress-box">
+        <label>Offshore Operations</label>
+        <div class="bar"><span style="width:65%"></span></div>
+      </div>
+    </section>
+
+    <section class="table-wrap">
+      <h2>Recent Petroleum Activities</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Activity</th>
+            <th>Location</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10 Jan 2025</td>
+            <td>Offshore Drilling</td>
+            <td>Black Sea</td>
+            <td><span class="badge success">Completed</span></td>
+          </tr>
+          <tr>
+            <td>08 Jan 2025</td>
+            <td>Seismic Survey</td>
+            <td>Eastern Anatolia</td>
+            <td><span class="badge pending">In Progress</span></td>
+          </tr>
+          <tr>
+            <td>05 Jan 2025</td>
+            <td>Pipeline Maintenance</td>
+            <td>Izmir Refinery</td>
+            <td><span class="badge warning">Scheduled</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
