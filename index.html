@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="style.css">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,27 +36,57 @@
   </nav>
 </aside>
 
-<!-- Main Content -->
+<!-- Main -->
 <main class="main">
 
-  <!-- Dashboard -->
+  <!-- DASHBOARD -->
   <section id="dashboard" class="page active">
-    <h1>Petroleum Operations Overview</h1>
-    <div class="cards">
-      <div class="card"><h3>Daily Production</h3><p>1.45M bbl</p></div>
-      <div class="card"><h3>Active Fields</h3><p>37</p></div>
-      <div class="card"><h3>Countries</h3><p>6</p></div>
-      <div class="card"><h3>Revenue</h3><p>$18.2B</p></div>
+
+    <!-- Banner -->
+    <div class="banner">
+      <img src="images/tpao-banner.jpg" alt="TPAO Operations">
+      <div class="banner-text">
+        <h1>TPAO Petroleum Dashboard</h1>
+        <p>Türkiye Petrolleri Anonim Ortaklığı – Energy Operations Overview</p>
+      </div>
     </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <img src="images/oil-field.jpg" alt="Oil Field">
+        <h3>Daily Production</h3>
+        <p>1.45M bbl</p>
+      </div>
+
+      <div class="card">
+        <img src="images/refinery.jpg" alt="Refinery">
+        <h3>Active Fields</h3>
+        <p>37</p>
+      </div>
+
+      <div class="card">
+        <img src="images/offshore.jpg" alt="Offshore">
+        <h3>Countries</h3>
+        <p>6</p>
+      </div>
+
+      <div class="card">
+        <img src="images/oil-field.jpg" alt="Revenue">
+        <h3>Revenue</h3>
+        <p>$18.2B</p>
+      </div>
+    </div>
+
   </section>
 
-  <!-- Production -->
+  <!-- PRODUCTION -->
   <section id="production" class="page">
     <h1>Oil Production</h1>
     <canvas id="productionChart"></canvas>
   </section>
 
-  <!-- Map -->
+  <!-- MAP -->
   <section id="mapPage" class="page">
     <h1>TPAO Oil Fields</h1>
     <div id="map"></div>
@@ -64,7 +94,7 @@
 
 </main>
 
-  <script>
+<script>
 /* ===== STATE ===== */
 let currentPage = 'dashboard';
 
@@ -79,7 +109,6 @@ history.replaceState({ type: 'page', page: 'dashboard' }, '', '#dashboard');
 function toggleSidebar() {
   sidebar.classList.add('show');
   overlay.classList.add('show');
-
   history.pushState({ type: 'sidebar', page: currentPage }, '', '#menu');
 }
 
@@ -88,12 +117,11 @@ function closeSidebar() {
   overlay.classList.remove('show');
 }
 
-/* ===== PAGE NAVIGATION ===== */
+/* ===== NAVIGATION ===== */
 function navigate(page) {
   currentPage = page;
   showPage(page);
   closeSidebar();
-
   history.pushState({ type: 'page', page }, '', `#${page}`);
 }
 
@@ -114,12 +142,10 @@ function showPage(page) {
     ?.classList.add('active');
 }
 
-/* ===== BACK BUTTON (CORRECT & FINAL) ===== */
+/* ===== BACK BUTTON ===== */
 window.addEventListener('popstate', (e) => {
-
   if (!e.state) return;
 
-  /* If sidebar state → open sidebar */
   if (e.state.type === 'sidebar') {
     sidebar.classList.add('show');
     overlay.classList.add('show');
@@ -127,12 +153,10 @@ window.addEventListener('popstate', (e) => {
     return;
   }
 
-  /* If page state → show page */
   if (e.state.type === 'page') {
     closeSidebar();
     showPage(e.state.page);
     currentPage = e.state.page;
-    return;
   }
 });
 
@@ -165,4 +189,4 @@ function initMap() {
 </script>
 
 </body>
-  </html>
+</html>
