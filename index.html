@@ -24,6 +24,11 @@
 
 <body>
 
+<!-- ===== TOP HEADER ===== -->
+<header class="top-header">
+  <h1>Türkiye Petrolleri Anonim Ortaklığı (TPAO)</h1>
+</header>
+
 <!-- Overlay -->
 <div id="overlay"></div>
 
@@ -32,7 +37,10 @@
 
 <!-- Sidebar -->
 <aside class="sidebar" id="sidebar">
-  <h2 class="logo">TPAO</h2>
+  <h2 class="logo">
+    Türkiye Petrolleri<br>
+    <span>TPAO</span>
+  </h2>
   <nav>
     <a class="active" data-page="dashboard">Dashboard</a>
     <a data-page="production">Production</a>
@@ -52,7 +60,8 @@
         <h1>TPAO Petroleum Dashboard</h1>
         <p>
           Türkiye Petrolleri Anonim Ortaklığı (TPAO) provides strategic leadership
-          in oil and gas exploration, production, and energy security.
+          in oil and gas exploration, production, and energy security across
+          Türkiye and international regions.
         </p>
       </div>
     </div>
@@ -86,6 +95,7 @@
         <p class="card-desc">Annual petroleum revenue.</p>
       </div>
     </div>
+
   </section>
 
   <!-- PRODUCTION -->
@@ -112,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.getElementById('menuBtn');
   let currentPage = 'dashboard';
   let mapLoaded = false;
-  let mapInstance = null;
 
   /* ===== SIDEBAR ===== */
   function openSidebar() {
@@ -133,9 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ===== NAVIGATION ===== */
   document.querySelectorAll('.sidebar a').forEach(link => {
-    link.onclick = () => {
-      navigate(link.dataset.page);
-    };
+    link.onclick = () => navigate(link.dataset.page);
   });
 
   function navigate(page) {
@@ -184,15 +191,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mapLoaded) return;
     mapLoaded = true;
 
-    mapInstance = L.map('map').setView([39, 35], 5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapInstance);
+    const map = L.map('map').setView([39, 35], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-    L.marker([37.88, 41.13]).addTo(mapInstance).bindPopup("Batman Oil Field");
-    L.marker([40.4, 49.9]).addTo(mapInstance).bindPopup("Caspian Block");
+    L.marker([37.88, 41.13]).addTo(map).bindPopup("Batman Oil Field");
+    L.marker([40.4, 49.9]).addTo(map).bindPopup("Caspian Block");
   }
 
 });
 </script>
 
 </body>
-  </html>
+</html>
