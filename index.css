@@ -313,3 +313,8 @@ body .social-links a:hover {
   transform: translateY(-4px) !important;
 }
 
+/* Limit content width on large screens */
+.main {
+  max-width: 1400px;
+  margin: auto;
+}
