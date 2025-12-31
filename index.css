@@ -1,92 +1,137 @@
+/* =========================
+   RESET & BASE
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #020617;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #0f172a;
   color: #e5e7eb;
-  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-/* Menu Button */
-.menu-btn {
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  font-size: 18px;
-  background: #020617;
-  color: #22c55e;
-  border: 1px solid #1f2933;
-  padding: 6px 10px;
-  border-radius: 6px;
-  z-index: 1200;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background: #020617;
-  padding: 20px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  overflow-y: auto;
-  z-index: 1100;
-}
-
-.sidebar .logo {
-  color: #22c55e;
-  font-size: 22px;
-  margin-bottom: 30px;
-}
-
-.sidebar nav a {
-  display: block;
-  color: #9ca3af;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.sidebar nav a.active,
-.sidebar nav a:hover {
-  background: #22c55e;
-  color: #020617;
-}
-
-/* Overlay */
+/* =========================
+   OVERLAY
+========================= */
 #overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
   transition: 0.3s;
-  z-index: 1000;
+  z-index: 9;
 }
 
 #overlay.show {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
 }
 
-/* Main */
+/* =========================
+   MENU BUTTON
+========================= */
+.menu-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  background: #22c55e;
+  color: #022c22;
+  border: none;
+  padding: 10px 14px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #020617;
+  padding: 24px;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.sidebar .logo {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: #22c55e;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #cbd5f5;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: #22c55e;
+  color: #022c22;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
 .main {
-  margin-left: 270px;
-  padding: 40px 30px;
+  padding: 24px;
+  margin-left: 0;
 }
 
-/* Banner */
+.page {
+  display: none;
+  animation: fade 0.4s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   BANNER
+========================= */
 .banner {
   position: relative;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .banner img {
@@ -98,86 +143,163 @@ body {
 
 .banner-text {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  inset: 0;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .banner-text h1 {
-  font-size: 28px;
-  color: #22c55e;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .banner-text p {
-  color: #e5e7eb;
-  max-width: 500px;
+  max-width: 600px;
+  font-size: 16px;
+  color: #e2e8f0;
 }
 
-/* Cards */
+/* =========================
+   CARDS
+========================= */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
 }
 
 .card {
   background: #020617;
-  border: 1px solid #1f2933;
-  padding: 15px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(34, 197, 94, 0.25);
 }
 
 .card img {
   width: 100%;
-  height: 140px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  margin-bottom: 14px;
 }
 
 .card h3 {
-  color: #9ca3af;
+  font-size: 18px;
+  margin-bottom: 6px;
 }
 
-.card p {
-  font-size: 24px;
+.card .value {
+  font-size: 26px;
+  font-weight: 700;
   color: #22c55e;
-  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
-/* Pages */
-.page {
-  display: none;
+.card-desc {
+  font-size: 14px;
+  color: #cbd5f5;
 }
 
-.page.active {
-  display: block;
+/* =========================
+   SOCIAL SECTION
+========================= */
+.social-section {
+  margin-top: 48px;
+  background: #020617;
+  padding: 32px;
+  border-radius: 18px;
+  text-align: center;
 }
 
+.social-section h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.social-section p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  color: #cbd5f5;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #22c55e;
+  color: #022c22;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+}
+
+/* =========================
+   PRODUCTION PAGE
+========================= */
+#production h1,
+#mapPage h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+#production p,
+#mapPage p {
+  max-width: 700px;
+  margin-bottom: 24px;
+  color: #cbd5f5;
+}
+
+canvas {
+  background: #020617;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/* =========================
+   MAP
+========================= */
 #map {
-  height: 500px;
-  margin-top: 20px;
-  border-radius: 12px;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .sidebar {
-    left: -260px;
-    transition: 0.3s;
-  }
-
-  .sidebar.show {
-    left: 0;
-  }
-
+/* =========================
+   RESPONSIVE
+========================= */
+@media (min-width: 768px) {
   .main {
-    margin-left: 0;
-    padding-top: 70px;
+    margin-left: 260px;
   }
 
-  .banner img {
-    height: 200px;
+  .menu-btn {
+    display: none;
+  }
+
+  #overlay {
+    display: none;
   }
 }
