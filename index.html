@@ -64,16 +64,15 @@
 
 </main>
 
-  <script>
+<script>
 /* Elements */
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('overlay');
 
-/* Sidebar controls */
+/* Sidebar */
 function toggleSidebar() {
   sidebar.classList.add('show');
   overlay.classList.add('show');
-  history.pushState({ sidebar: true }, "");
 }
 
 function closeSidebar() {
@@ -81,8 +80,18 @@ function closeSidebar() {
   overlay.classList.remove('show');
 }
 
-/* Navigation */
+/* Pages */
+const pages = ['dashboard', 'production', 'map'];
+
+/* Navigate */
 function navigate(page) {
+  showPage(page);
+  history.pushState({ page }, "", `#${page}`);
+  closeSidebar();
+}
+
+/* Show page */
+function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
 
@@ -94,21 +103,18 @@ function navigate(page) {
   }
 
   document.querySelector(`.sidebar a[onclick="navigate('${page}')"]`).classList.add('active');
-
-  closeSidebar();
-  history.pushState({ page }, "");
 }
 
-/* BACK BUTTON HANDLING (IMPORTANT FIX) */
-window.addEventListener('popstate', () => {
+/* Handle BACK button properly */
+window.addEventListener('popstate', (e) => {
   closeSidebar();
 
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-
-  document.getElementById('dashboard').classList.add('active');
-  document.querySelector(".sidebar a").classList.add('active');
+  const page = e.state?.page || 'dashboard';
+  showPage(page);
 });
+
+/* Initial state */
+history.replaceState({ page: 'dashboard' }, "", "#dashboard");
 
 /* Chart */
 new Chart(document.getElementById('productionChart'), {
@@ -136,7 +142,7 @@ function initMap() {
   L.marker([37.88, 41.13]).addTo(map).bindPopup("Batman Oil Field");
   L.marker([40.4, 49.9]).addTo(map).bindPopup("Caspian Block");
 }
-  </script>
+</script>
 
 </body>
   </html>
