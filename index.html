@@ -22,6 +22,9 @@
 
 <div id="overlay" onclick="closeSidebar()"></div>
 <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+  <button class="back-btn" onclick="goBack()">
+  ← Back
+  </button>
 
 <aside class="sidebar" id="sidebar">
   <h2 class="logo">TPAO</h2>
@@ -121,6 +124,12 @@
 
   </div>
 </section>
+
+  <script>
+function goBack() {
+  window.history.back();
+}
+  </script>
 
 <!-- PRODUCTION -->
 <section id="production" class="page">
