@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background: #f1f5f9;
@@ -30,23 +34,38 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
 }
 
 .top-header h1 {
   font-size: 18px;
   font-weight: 700;
   text-align: center;
-  padding: 0 16px;
+  padding: 0 48px;
 }
 
 /* =========================
-   MAIN LAYOUT OFFSET
+   BACK BUTTON
 ========================= */
-.main {
-  padding-top: 80px; /* prevents header overlap */
-  padding-left: 20px;
-  padding-right: 20px;
+.back-btn {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 1100;
+  background: #1e293b;
+  color: #ffffff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-btn:hover {
+  background: #334155;
 }
 
 /* =========================
@@ -61,7 +80,7 @@ body {
   background: #1e293b;
   color: #ffffff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 8px 12px;
   cursor: pointer;
 }
@@ -72,7 +91,7 @@ body {
 #overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.45);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -110,21 +129,15 @@ body {
   margin-bottom: 32px;
 }
 
-.logo span {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
 .sidebar nav a {
   display: block;
   padding: 12px 16px;
-  border-radius: 8px;
+  border-radius: 10px;
   color: #cbd5f5;
   text-decoration: none;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 
 .sidebar nav a:hover,
@@ -134,11 +147,20 @@ body {
 }
 
 /* =========================
+   MAIN CONTENT
+========================= */
+.main {
+  padding-top: 96px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* =========================
    PAGE VISIBILITY
 ========================= */
 .page {
   display: none;
-  animation: fadeIn 0.4s ease;
+  animation: fadeIn 0.35s ease;
 }
 
 .page.active {
@@ -161,25 +183,29 @@ body {
 ========================= */
 .banner {
   position: relative;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
+  background: #000;
 }
 
 .banner img {
   width: 100%;
-  height: 280px;
+  height: 300px;
   object-fit: cover;
+}
+
+.image-caption {
+  font-size: 13px;
+  color: #e5e7eb;
+  background: rgba(0,0,0,0.6);
+  padding: 8px 12px;
 }
 
 .banner-text {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(2, 6, 23, 0.75),
-    rgba(2, 6, 23, 0.2)
-  );
+  background: linear-gradient(to top, rgba(2,6,23,0.75), rgba(2,6,23,0.2));
   color: #ffffff;
   padding: 32px;
   display: flex;
@@ -193,9 +219,9 @@ body {
 }
 
 .banner-text p {
-  max-width: 600px;
+  max-width: 640px;
   font-size: 14px;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 /* =========================
@@ -203,16 +229,16 @@ body {
 ========================= */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 24px;
 }
 
 .card {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
 }
 
 .card:hover {
@@ -221,19 +247,18 @@ body {
 
 .card img {
   width: 100%;
-  height: 140px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
+  border-radius: 14px;
 }
 
 .card h3 {
+  margin-top: 12px;
   font-size: 16px;
-  margin-bottom: 6px;
 }
 
-.card .value {
-  font-size: 22px;
+.value {
+  font-size: 24px;
   font-weight: 700;
   color: #16a34a;
 }
@@ -244,24 +269,23 @@ body {
 }
 
 /* =========================
-   PRODUCTION PAGE
+   CHARTS
 ========================= */
-#production canvas {
-  max-width: 100%;
-  margin-top: 20px;
+canvas {
+  margin-top: 24px;
   background: #ffffff;
   padding: 16px;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 /* =========================
-   MAP PAGE
+   MAP
 ========================= */
 #map {
   width: 100%;
   height: 420px;
-  margin-top: 20px;
-  border-radius: 16px;
+  margin-top: 24px;
+  border-radius: 18px;
   overflow: hidden;
 }
 
@@ -274,6 +298,6 @@ body {
   }
 
   .top-header h1 {
-    font-size: 15px;
+    font-size: 14px;
   }
-}
+   }
