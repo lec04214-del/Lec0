@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #f4f6fa;
+  color: #1e293b;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: linear-gradient(180deg, #020617, #0f172a);
+  padding: 30px 20px;
+  color: white;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  color: #facc15;
+  margin-bottom: 40px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  color: #cbd5f5;
+  cursor: pointer;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: #1e293b;
+  color: white;
+}
+
+main {
+  flex: 1;
+  padding: 30px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.user {
+  background: #0f172a;
+  color: #facc15;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.kpi-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.progress-section,
+.table-wrap {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+}
+
+.bar {
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #0f172a, #facc15);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.success { background: #dcfce7; color: #166534; }
+.pending { background: #fff7ed; color: #9a3412; }
+.warning { background: #fee2e2; color: #991b1b; }
+
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+}
