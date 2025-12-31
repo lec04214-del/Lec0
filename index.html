@@ -65,32 +65,46 @@
 </main>
   
 <script>
-/* Elements */
+/* ===== GLOBAL STATE ===== */
+let currentPage = 'dashboard';
+let sidebarOpen = false;
+
+/* ===== ELEMENTS ===== */
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('overlay');
 
-/* Sidebar */
+/* ===== INITIAL HISTORY LOCK ===== */
+history.replaceState({ page: 'dashboard' }, "", "#dashboard");
+
+/* ===== SIDEBAR ===== */
 function toggleSidebar() {
   sidebar.classList.add('show');
   overlay.classList.add('show');
+  sidebarOpen = true;
+
+  history.pushState({ sidebar: true }, "");
 }
 
 function closeSidebar() {
   sidebar.classList.remove('show');
   overlay.classList.remove('show');
+  sidebarOpen = false;
 }
 
-/* Pages */
-const pages = ['dashboard', 'production', 'map'];
-
-/* Navigate */
+/* ===== PAGE SWITCH ===== */
 function navigate(page) {
+  if (page === currentPage) {
+    closeSidebar();
+    return;
+  }
+
   showPage(page);
-  history.pushState({ page }, "", `#${page}`);
+  history.pushState({ page }, ``, `#${page}`);
+  currentPage = page;
   closeSidebar();
 }
 
-/* Show page */
+/* ===== SHOW PAGE ===== */
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
@@ -102,21 +116,34 @@ function showPage(page) {
     document.getElementById(page).classList.add('active');
   }
 
-  document.querySelector(`.sidebar a[onclick="navigate('${page}')"]`).classList.add('active');
+  document
+    .querySelector(`.sidebar a[onclick="navigate('${page}')"]`)
+    ?.classList.add('active');
 }
 
-/* Handle BACK button properly */
+/* ===== BACK BUTTON (THE REAL FIX) ===== */
 window.addEventListener('popstate', (e) => {
-  closeSidebar();
 
-  const page = e.state?.page || 'dashboard';
-  showPage(page);
+  /* 1️⃣ If sidebar is open → close it */
+  if (sidebarOpen) {
+    closeSidebar();
+    return;
+  }
+
+  /* 2️⃣ If history state has page → go to it */
+  if (e.state && e.state.page) {
+    showPage(e.state.page);
+    currentPage = e.state.page;
+    return;
+  }
+
+  /* 3️⃣ SAFETY: never exit site directly */
+  showPage('dashboard');
+  currentPage = 'dashboard';
+  history.pushState({ page: 'dashboard' }, "", "#dashboard");
 });
 
-/* Initial state */
-history.replaceState({ page: 'dashboard' }, "", "#dashboard");
-
-/* Chart */
+/* ===== CHART ===== */
 new Chart(document.getElementById('productionChart'), {
   type: 'line',
   data: {
@@ -130,7 +157,7 @@ new Chart(document.getElementById('productionChart'), {
   }
 });
 
-/* Map */
+/* ===== MAP ===== */
 let mapLoaded = false;
 function initMap() {
   if (mapLoaded) return;
