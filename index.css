@@ -264,3 +264,52 @@ body {
   transform: translateY(-4px);
 }
 
+/* =========================================
+   FORCE MENU BUTTON UNDER HEADER (OVERRIDE)
+========================================= */
+
+body .menu-btn {
+  top: calc(80px + 14px) !important; /* header height + spacing */
+  left: 16px !important;
+  padding: 8px 10px !important;
+  font-size: 18px !important;
+  z-index: 5000 !important;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  body .menu-btn {
+    top: calc(80px + 12px) !important;
+  }
+}
+
+/* =========================================
+   FORCE SOCIAL ICON SPACING (OVERRIDE)
+========================================= */
+
+body .social-links {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 26px !important;
+  margin-top: 18px !important;
+  margin-bottom: 14px !important;
+}
+
+body .social-links a {
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  background: rgba(56, 189, 248, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+body .social-links a:hover {
+  background: #38bdf8 !important;
+  color: #020617 !important;
+  transform: translateY(-4px) !important;
+}
+
