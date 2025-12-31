@@ -11,6 +11,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -47,34 +50,83 @@
       <img src="images/tpao-banner.jpg" alt="TPAO Operations">
       <div class="banner-text">
         <h1>TPAO Petroleum Dashboard</h1>
-        <p>Türkiye Petrolleri Anonim Ortaklığı – Energy Operations Overview</p>
+        <p>
+          Türkiye Petrolleri Anonim Ortaklığı (TPAO) provides strategic leadership
+          in oil and gas exploration, production, and energy security across
+          Türkiye and international regions.
+        </p>
       </div>
     </div>
 
     <!-- Cards -->
     <div class="cards">
+
       <div class="card">
         <img src="images/oil-field.jpg" alt="Oil Field">
         <h3>Daily Production</h3>
-        <p>1.45M bbl</p>
+        <p class="value">1.45M bbl</p>
+        <p class="card-desc">
+          Average daily crude oil production across onshore and offshore
+          operations, reflecting stable growth and optimized extraction.
+        </p>
       </div>
 
       <div class="card">
         <img src="images/refinery.jpg" alt="Refinery">
         <h3>Active Fields</h3>
-        <p>37</p>
+        <p class="value">37</p>
+        <p class="card-desc">
+          Operational oil and gas fields currently managed and monitored by
+          TPAO within domestic and international territories.
+        </p>
       </div>
 
       <div class="card">
-        <img src="images/offshore.jpg" alt="Offshore">
+        <img src="images/offshore.jpg" alt="Offshore Operations">
         <h3>Countries</h3>
-        <p>6</p>
+        <p class="value">6</p>
+        <p class="card-desc">
+          Countries where TPAO conducts exploration, production, and joint
+          venture energy projects worldwide.
+        </p>
       </div>
 
       <div class="card">
         <img src="images/oil-field.jpg" alt="Revenue">
         <h3>Revenue</h3>
-        <p>$18.2B</p>
+        <p class="value">$18.2B</p>
+        <p class="card-desc">
+          Annual revenue generated through petroleum exploration, refining,
+          exports, and strategic partnerships.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="social-section">
+      <h2>Connect With TPAO</h2>
+      <p>
+        Follow Türkiye Petrolleri Anonim Ortaklığı on official platforms for
+        updates, reports, and global energy insights.
+      </p>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+
+        <a href="https://twitter.com" target="_blank">
+          <i class="fab fa-x-twitter"></i> X (Twitter)
+        </a>
+
+        <a href="https://www.facebook.com" target="_blank">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+
+        <a href="https://www.instagram.com" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
       </div>
     </div>
 
@@ -83,12 +135,20 @@
   <!-- PRODUCTION -->
   <section id="production" class="page">
     <h1>Oil Production</h1>
+    <p>
+      Monthly crude oil production performance demonstrating steady operational
+      growth and efficiency improvements.
+    </p>
     <canvas id="productionChart"></canvas>
   </section>
 
   <!-- MAP -->
   <section id="mapPage" class="page">
     <h1>TPAO Oil Fields</h1>
+    <p>
+      Interactive map highlighting key oil fields and exploration blocks
+      operated by TPAO.
+    </p>
     <div id="map"></div>
   </section>
 
@@ -189,4 +249,4 @@ function initMap() {
 </script>
 
 </body>
-</html>
+  </html>
