@@ -1,181 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>TPAO Petroleum Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>TPAO Petroleum Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="index.css">
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-<header class="top-header">
-  <h1>Türkiye Petrolleri Anonim Ortaklığı (TPAO)</h1>
-</header>
+<div class="dashboard">
 
-<div id="overlay" onclick="closeSidebar()"></div>
-<button class="menu-btn" onclick="toggleSidebar()">☰</button>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <h2>TPAO Petroleum</h2>
+    <a href="#overview" onclick="navigate('overview')"><i class="fas fa-chart-line"></i> Overview</a>
+    <a href="#production" onclick="navigate('production')"><i class="fas fa-industry"></i> Production</a>
+    <a href="#revenue" onclick="navigate('revenue')"><i class="fas fa-dollar-sign"></i> Revenue</a>
+    <a href="#fields" onclick="navigate('fields')"><i class="fas fa-oil-well"></i> Oil Fields</a>
+    <a href="#contact" onclick="navigate('contact')"><i class="fas fa-envelope"></i> Contact</a>
+  </aside>
 
-<aside class="sidebar" id="sidebar">
-  <h2 class="logo">TPAO</h2>
-  <nav>
-    <a onclick="navigate('production')">Production</a>
-    <a onclick="navigate('revenue')">Revenue</a>
-    <a onclick="navigate('mapPage')">Oil Fields</a>
-  </nav>
-</aside>
+  <!-- MAIN CONTENT -->
+  <main class="main">
 
-<main class="main">
+    <!-- HEADER -->
+    <header class="header">
+      <span class="menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </span>
+      <h1>TPAO Petroleum Company Dashboard</h1>
+      <p>Operational insights, production performance and corporate overview</p>
+    </header>
 
-  <!-- PRODUCTION -->
-  <section id="production" class="page active">
-    <h1>Oil Production</h1>
-    <p>
-      Monthly crude oil production trends demonstrating operational growth and
-      efficiency improvements.
-    </p>
+    <!-- DASHBOARD CARDS -->
+    <section class="cards">
 
-    <canvas id="productionChart"></canvas>
+      <article class="card" id="overview">
+        <img src="https://images.unsplash.com/photo-1581091870627-3c5f2c1cfb34" alt="Overview">
+        <div class="card-content">
+          <h3>Company Overview</h3>
+          <p>
+            TPAO Petroleum is a leading energy company focused on exploration,
+            production, and sustainable petroleum development across global markets.
+          </p>
+        </div>
+      </article>
 
-    <!-- WRITE-UP -->
-    <p class="visual-writeup">
-      This chart illustrates TPAO’s monthly crude oil production performance.
-      The steady upward trend reflects improved drilling efficiency, optimized
-      reservoir management, and the deployment of advanced production
-      technologies across onshore and offshore assets.
-    </p>
-  </section>
+      <article class="card" id="production">
+        <img src="https://images.unsplash.com/photo-1601134467661-3c0b2fdd0a41" alt="Production">
+        <div class="card-content">
+          <h3>Production Operations</h3>
+          <p>
+            Our production facilities utilize advanced technology to ensure
+            efficient extraction while maintaining strict safety and environmental standards.
+          </p>
+        </div>
+      </article>
 
-  <!-- REVENUE -->
-  <section id="revenue" class="page">
-    <h1>Revenue Performance</h1>
-    <p>
-      Annual revenue performance reflecting TPAO’s contribution to the national
-      economy and energy sector.
-    </p>
+      <article class="card" id="revenue">
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c" alt="Revenue">
+        <div class="card-content">
+          <h3>Revenue Performance</h3>
+          <p>
+            TPAO continues to deliver strong financial growth through strategic
+            investments, operational excellence, and global energy partnerships.
+          </p>
+        </div>
+      </article>
 
-    <canvas id="revenueChart"></canvas>
+      <article class="card" id="fields">
+        <img src="https://images.unsplash.com/photo-1617957743094-8f69bdf9b9c4" alt="Oil Fields">
+        <div class="card-content">
+          <h3>Oil Fields</h3>
+          <p>
+            Our oil fields span multiple regions, ensuring energy security
+            while supporting local economies and infrastructure development.
+          </p>
+        </div>
+      </article>
 
-    <!-- WRITE-UP -->
-    <p class="visual-writeup">
-      The revenue chart highlights TPAO’s financial growth over recent years.
-      Increased production capacity, strategic international partnerships, and
-      favorable energy market conditions have strengthened the company’s
-      revenue base and long-term economic impact.
-    </p>
-  </section>
+    </section>
 
-  <!-- MAP -->
-  <section id="mapPage" class="page">
-    <h1>TPAO Oil Fields</h1>
-    <p>
-      Interactive map highlighting major oil fields and exploration blocks
-      operated by TPAO.
-    </p>
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+      <p>Connect with TPAO Petroleum</p>
 
-    <div id="map"></div>
+      <div class="social-links">
+        <a href="mailto:info@tpao.com"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
 
-    <!-- WRITE-UP -->
-    <p class="visual-writeup">
-      This map provides a geographical overview of TPAO’s key oil fields and
-      exploration zones. It demonstrates the company’s strategic footprint
-      across Türkiye and neighboring regions, supporting national energy
-      security and international upstream operations.
-    </p>
-  </section>
+      <p class="copyright">
+        © 2025 TPAO Petroleum Company
+      </p>
+    </footer>
 
-</main>
+  </main>
+</div>
 
+<!-- JAVASCRIPT -->
 <script>
-/* ======================
-   SIDEBAR CONTROL
-====================== */
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
-
 function toggleSidebar() {
-  sidebar.classList.toggle('show');
-  overlay.classList.toggle('show');
+  document.getElementById("sidebar").classList.toggle("active");
 }
 
-function closeSidebar() {
-  sidebar.classList.remove('show');
-  overlay.classList.remove('show');
+function navigate(section) {
+  history.pushState({page: section}, "", "#" + section);
 }
 
-/* ======================
-   NAVIGATION + HISTORY
-====================== */
-function navigate(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(page).classList.add('active');
-
-  history.pushState({ page }, "", "#" + page);
-
-  if (page === "mapPage") {
-    setTimeout(initMap, 300);
-  }
-
-  closeSidebar();
-}
-
-/* Phone BACK button opens sidebar */
-window.addEventListener("popstate", () => {
-  toggleSidebar();
-});
-
-/* ======================
-   CHARTS
-====================== */
-document.addEventListener("DOMContentLoaded", () => {
-
-  new Chart(document.getElementById('productionChart'), {
-    type: 'line',
-    data: {
-      labels: ['Jan','Feb','Mar','Apr','May','Jun'],
-      datasets: [{
-        label: 'Barrels / Day',
-        data: [120,135,140,150,145,160],
-        borderColor: '#22c55e',
-        tension: 0.4
-      }]
-    }
-  });
-
-  new Chart(document.getElementById('revenueChart'), {
-    type: 'bar',
-    data: {
-      labels: ['2019','2020','2021','2022','2023','2024'],
-      datasets: [{
-        label: 'Revenue (Billion USD)',
-        data: [11.2,12.6,14.8,16.3,18.2,19.1],
-        backgroundColor: '#1e293b'
-      }]
-    }
-  });
-
-});
-
-/* ======================
-   MAP
-====================== */
-let mapLoaded = false;
-function initMap() {
-  if (mapLoaded) return;
-  mapLoaded = true;
-
-  const map = L.map('map').setView([39, 35], 5);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-  L.marker([37.88, 41.13]).addTo(map).bindPopup("Batman Oil Field");
-  L.marker([40.4, 49.9]).addTo(map).bindPopup("Caspian Block");
-}
+window.onpopstate = function () {
+  document.getElementById("sidebar").classList.remove("active");
+};
 </script>
 
 </body>
