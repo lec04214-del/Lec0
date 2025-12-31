@@ -5,207 +5,218 @@
   <title>TPAO Petroleum Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="index.css">
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <!-- 🔧 SMALL FIX STYLE (ONLY FOR HEADER OFFSET) -->
-  <style>
-    .top-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 64px;
-      background: #0f172a;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      z-index: 1200;
-    }
-
-    .main {
-      padding-top: 80px; /* prevents overlap */
-    }
-  </style>
 </head>
 
 <body>
 
-<!-- ✅ TOP HEADER (FIX) -->
 <header class="top-header">
-  Türkiye Petrolleri Anonim Ortaklığı (TPAO)
+  <h1>Türkiye Petrolleri Anonim Ortaklığı (TPAO)</h1>
 </header>
 
-<!-- Overlay -->
-<div id="overlay"></div>
+<div id="overlay" onclick="closeSidebar()"></div>
+<button class="menu-btn" onclick="toggleSidebar()">☰</button>
 
-<!-- Menu Button -->
-<button class="menu-btn" id="menuBtn">☰</button>
-
-<!-- Sidebar -->
 <aside class="sidebar" id="sidebar">
   <h2 class="logo">TPAO</h2>
   <nav>
-    <a class="active" data-page="dashboard">Dashboard</a>
-    <a data-page="production">Production</a>
-    <a data-page="map">Oil Fields</a>
+    <a class="active" onclick="navigate('dashboard')">Dashboard</a>
+    <a onclick="navigate('production')">Production</a>
+    <a onclick="navigate('revenue')">Revenue</a>
+    <a onclick="navigate('map')">Oil Fields</a>
   </nav>
 </aside>
 
-<!-- Main -->
 <main class="main">
 
-  <!-- DASHBOARD -->
-  <section id="dashboard" class="page active">
+<!-- DASHBOARD -->
+<section id="dashboard" class="page active">
 
-    <div class="banner">
-      <img src="images/tpao-banner.jpg" alt="TPAO Operations">
-      <div class="banner-text">
-        <h1>TPAO Petroleum Dashboard</h1>
-        <p>
-          Türkiye Petrolleri Anonim Ortaklığı (TPAO) provides strategic leadership
-          in oil and gas exploration, production, and energy security.
-        </p>
-      </div>
+  <!-- BANNER -->
+  <figure class="banner">
+    <img src="images/tpao-banner.jpg" alt="TPAO Oil and Gas Operations">
+    <figcaption class="image-caption">
+      Integrated oil and gas exploration and production activities supporting
+      Türkiye’s national energy security and sustainable resource development.
+    </figcaption>
+
+    <div class="banner-text">
+      <h1>TPAO Petroleum Dashboard</h1>
+      <p>
+        Türkiye Petrolleri Anonim Ortaklığı (TPAO) is the national oil company of
+        Türkiye, responsible for upstream petroleum operations and strategic
+        energy initiatives.
+      </p>
+    </div>
+  </figure>
+
+  <!-- CARDS -->
+  <div class="cards">
+
+    <div class="card">
+      <figure>
+        <img src="images/oil-field.jpg" alt="Onshore Oil Field Operations">
+        <figcaption class="image-caption">
+          Onshore oil field operations utilizing advanced drilling technologies
+          and enhanced recovery methods to maximize production efficiency.
+        </figcaption>
+      </figure>
+      <h3>Daily Production</h3>
+      <p class="value">1.45M bbl</p>
+      <p class="card-desc">
+        Average daily crude oil production across all active TPAO assets.
+      </p>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <img src="images/oil-field.jpg" alt="Oil Field">
-        <h3>Daily Production</h3>
-        <p class="value">1.45M bbl</p>
-        <p class="card-desc">Average daily crude oil production.</p>
-      </div>
-
-      <div class="card">
-        <img src="images/refinery.jpg" alt="Refinery">
-        <h3>Active Fields</h3>
-        <p class="value">37</p>
-        <p class="card-desc">Operational oil and gas fields.</p>
-      </div>
-
-      <div class="card">
-        <img src="images/offshore.jpg" alt="Offshore">
-        <h3>Countries</h3>
-        <p class="value">6</p>
-        <p class="card-desc">Countries of operation.</p>
-      </div>
-
-      <div class="card">
-        <img src="images/oil-field.jpg" alt="Revenue">
-        <h3>Revenue</h3>
-        <p class="value">$18.2B</p>
-        <p class="card-desc">Annual petroleum revenue.</p>
-      </div>
+    <div class="card">
+      <figure>
+        <img src="images/refinery.jpg" alt="Oil Refining and Processing Facility">
+        <figcaption class="image-caption">
+          Refining and processing facilities supporting the transformation of
+          crude oil into commercially valuable petroleum products.
+        </figcaption>
+      </figure>
+      <h3>Active Fields</h3>
+      <p class="value">37</p>
+      <p class="card-desc">
+        Oil and gas fields currently under active exploration and production.
+      </p>
     </div>
 
-  </section>
+    <div class="card">
+      <figure>
+        <img src="images/offshore.jpg" alt="Offshore Drilling Platform">
+        <figcaption class="image-caption">
+          Offshore drilling platforms enabling deep-water exploration and
+          international hydrocarbon development projects.
+        </figcaption>
+      </figure>
+      <h3>Countries</h3>
+      <p class="value">6</p>
+      <p class="card-desc">
+        Countries where TPAO conducts upstream petroleum operations.
+      </p>
+    </div>
 
-  <!-- PRODUCTION -->
-  <section id="production" class="page">
-    <h1>Oil Production</h1>
-    <p>Monthly crude oil production.</p>
-    <canvas id="productionChart"></canvas>
-  </section>
+    <div class="card">
+      <figure>
+        <img src="images/oil-field.jpg" alt="Petroleum Revenue Operations">
+        <figcaption class="image-caption">
+          Revenue generation through petroleum production, exports, and
+          long-term strategic energy partnerships.
+        </figcaption>
+      </figure>
+      <h3>Annual Revenue</h3>
+      <p class="value">$18.2B</p>
+      <p class="card-desc">
+        Annual revenue generated from national and international operations.
+      </p>
+    </div>
 
-  <!-- MAP -->
-  <section id="mapPage" class="page">
-    <h1>TPAO Oil Fields</h1>
-    <p>Interactive oil field locations.</p>
-    <div id="map"></div>
-  </section>
+  </div>
+</section>
+
+<!-- PRODUCTION -->
+<section id="production" class="page">
+  <h1>Oil Production</h1>
+  <p>
+    Monthly crude oil production trends demonstrating operational growth and
+    efficiency improvements.
+  </p>
+  <canvas id="productionChart"></canvas>
+</section>
+
+<!-- REVENUE -->
+<section id="revenue" class="page">
+  <h1>Revenue Performance</h1>
+  <p>
+    Annual revenue performance reflecting TPAO’s contribution to the national
+    economy and energy sector.
+  </p>
+  <canvas id="revenueChart"></canvas>
+</section>
+
+<!-- MAP -->
+<section id="mapPage" class="page">
+  <h1>TPAO Oil Fields</h1>
+  <p>
+    Interactive map highlighting major oil fields and exploration blocks
+    operated by TPAO.
+  </p>
+  <div id="map"></div>
+</section>
 
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
 
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
-  const menuBtn = document.getElementById('menuBtn');
-  let mapLoaded = false;
+function toggleSidebar() {
+  sidebar.classList.add('show');
+  overlay.classList.add('show');
+}
+function closeSidebar() {
+  sidebar.classList.remove('show');
+  overlay.classList.remove('show');
+}
+function navigate(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
 
-  function openSidebar() {
-    sidebar.classList.add('show');
-    overlay.classList.add('show');
+  if (page === 'map') {
+    document.getElementById('mapPage').classList.add('active');
+    setTimeout(initMap, 300);
+  } else {
+    document.getElementById(page).classList.add('active');
   }
 
-  function closeSidebar() {
-    sidebar.classList.remove('show');
-    overlay.classList.remove('show');
+  document.querySelector(`.sidebar a[onclick="navigate('${page}')"]`)?.classList.add('active');
+  closeSidebar();
+}
+
+/* Charts */
+new Chart(document.getElementById('productionChart'), {
+  type: 'line',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets: [{
+      label: 'Barrels / Day',
+      data: [120,135,140,150,145,160],
+      borderColor: '#22c55e',
+      tension: 0.4
+    }]
   }
-
-  menuBtn.onclick = () => {
-    sidebar.classList.contains('show') ? closeSidebar() : openSidebar();
-  };
-
-  overlay.onclick = closeSidebar;
-
-  document.querySelectorAll('.sidebar a').forEach(link => {
-    link.onclick = () => navigate(link.dataset.page);
-  });
-
-  function navigate(page) {
-    showPage(page);
-    closeSidebar();
-    history.pushState({ page }, '', `#${page}`);
-  }
-
-  function showPage(page) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-
-    if (page === 'map') {
-      document.getElementById('mapPage').classList.add('active');
-      setTimeout(initMap, 300);
-    } else {
-      document.getElementById(page).classList.add('active');
-    }
-
-    document.querySelector(`.sidebar a[data-page="${page}"]`)?.classList.add('active');
-  }
-
-  new Chart(document.getElementById('productionChart'), {
-    type: 'line',
-    data: {
-      labels: ['Jan','Feb','Mar','Apr','May','Jun'],
-      datasets: [{
-        label: 'Barrels / Day',
-        data: [120,135,140,150,145,160],
-        borderColor: '#22c55e',
-        tension: 0.4
-      }]
-    }
-  });
-
-  function initMap() {
-    if (mapLoaded) return;
-    mapLoaded = true;
-
-    const map = L.map('map').setView([39, 35], 5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-    L.marker([37.88, 41.13]).addTo(map).bindPopup("Batman Oil Field");
-    L.marker([40.4, 49.9]).addTo(map).bindPopup("Caspian Block");
-  }
-
 });
+
+new Chart(document.getElementById('revenueChart'), {
+  type: 'bar',
+  data: {
+    labels: ['2019','2020','2021','2022','2023','2024'],
+    datasets: [{
+      label: 'Revenue (Billion USD)',
+      data: [11.2,12.6,14.8,16.3,18.2,19.1],
+      backgroundColor: '#1e293b'
+    }]
+  }
+});
+
+/* Map */
+let mapLoaded = false;
+function initMap() {
+  if (mapLoaded) return;
+  mapLoaded = true;
+  const map = L.map('map').setView([39, 35], 5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  L.marker([37.88, 41.13]).addTo(map).bindPopup("Batman Oil Field");
+  L.marker([40.4, 49.9]).addTo(map).bindPopup("Caspian Block");
+}
 </script>
 
 </body>
