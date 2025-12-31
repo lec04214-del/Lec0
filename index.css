@@ -8,35 +8,39 @@
 body {
   background: #020617;
   color: #e5e7eb;
+  overflow-x: hidden;
 }
 
+/* Menu Button */
 .menu-btn {
-  display: none;
   position: fixed;
-  top: 15px;
-  left: 15px;
-  font-size: 24px;
+  top: 12px;
+  left: 12px;
+  font-size: 18px;
   background: #020617;
   color: #22c55e;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  z-index: 1000;
+  border: 1px solid #1f2933;
+  padding: 6px 10px;
+  border-radius: 6px;
+  z-index: 1200;
 }
 
+/* Sidebar */
 .sidebar {
   width: 250px;
   height: 100vh;
   background: #020617;
   padding: 20px;
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1100;
 }
 
 .sidebar .logo {
   color: #22c55e;
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 30px;
 }
 
@@ -55,9 +59,26 @@ body {
   color: #020617;
 }
 
+/* Overlay */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+#overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Main */
 .main {
   margin-left: 270px;
-  padding: 30px;
+  padding: 40px 30px;
 }
 
 .cards {
@@ -100,10 +121,6 @@ body {
 
 /* Mobile */
 @media (max-width: 768px) {
-  .menu-btn {
-    display: block;
-  }
-
   .sidebar {
     left: -260px;
     transition: 0.3s;
@@ -115,5 +132,6 @@ body {
 
   .main {
     margin-left: 0;
+    padding-top: 70px;
   }
 }
