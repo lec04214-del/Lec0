@@ -2,104 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TPAO | Petroleum Dashboard</title>
+  <title>TPAO Petroleum Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
 
-<div class="layout">
+<button class="menu-btn" onclick="toggleSidebar()">☰</button>
 
-  <aside class="sidebar">
-    <div class="logo">TPAO</div>
-    <nav>
-      <a class="active">Dashboard</a>
-      <a>Exploration</a>
-      <a>Production</a>
-      <a>Assets</a>
-      <a>Employees</a>
-      <a>Reports</a>
-      <a>Settings</a>
-    </nav>
-  </aside>
+<aside class="sidebar" id="sidebar">
+  <h2 class="logo">TPAO</h2>
+  <nav>
+    <a onclick="showPage('dashboard')" class="active">Dashboard</a>
+    <a onclick="showPage('production')">Production</a>
+    <a onclick="showPage('map')">Oil Fields</a>
+  </nav>
+</aside>
 
-  <main>
-    <header class="topbar">
-      <h1>Petroleum Operations Overview</h1>
-      <div class="user">Admin Panel</div>
-    </header>
+<main class="main">
 
-    <section class="kpi">
-      <div class="kpi-card">
-        <h4>Daily Production</h4>
-        <p>145,000 <span>bbl/day</span></p>
-      </div>
-      <div class="kpi-card">
-        <h4>Annual Revenue</h4>
-        <p>$8.4 <span>Billion</span></p>
-      </div>
-      <div class="kpi-card">
-        <h4>Oil Reserves</h4>
-        <p>1.2 <span>Billion bbl</span></p>
-      </div>
-      <div class="kpi-card">
-        <h4>Total Employees</h4>
-        <p>12,500</p>
-      </div>
-    </section>
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="page active">
+    <h1>Petroleum Operations Overview</h1>
 
-    <section class="progress-section">
-      <h2>Operational Performance</h2>
-      <div class="progress-box">
-        <label>Field Utilization</label>
-        <div class="bar"><span style="width:82%"></span></div>
-      </div>
-      <div class="progress-box">
-        <label>Refinery Efficiency</label>
-        <div class="bar"><span style="width:74%"></span></div>
-      </div>
-      <div class="progress-box">
-        <label>Offshore Operations</label>
-        <div class="bar"><span style="width:65%"></span></div>
-      </div>
-    </section>
+    <div class="cards">
+      <div class="card"><h3>Daily Production</h3><p>1.45M bbl</p></div>
+      <div class="card"><h3>Active Fields</h3><p>37</p></div>
+      <div class="card"><h3>Countries</h3><p>6</p></div>
+      <div class="card"><h3>Revenue</h3><p>$18.2B</p></div>
+    </div>
+  </section>
 
-    <section class="table-wrap">
-      <h2>Recent Petroleum Activities</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Activity</th>
-            <th>Location</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>10 Jan 2025</td>
-            <td>Offshore Drilling</td>
-            <td>Black Sea</td>
-            <td><span class="badge success">Completed</span></td>
-          </tr>
-          <tr>
-            <td>08 Jan 2025</td>
-            <td>Seismic Survey</td>
-            <td>Eastern Anatolia</td>
-            <td><span class="badge pending">In Progress</span></td>
-          </tr>
-          <tr>
-            <td>05 Jan 2025</td>
-            <td>Pipeline Maintenance</td>
-            <td>Izmir Refinery</td>
-            <td><span class="badge warning">Scheduled</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+  <!-- PRODUCTION -->
+  <section id="production" class="page">
+    <h1>Oil Production Chart</h1>
+    <canvas id="productionChart"></canvas>
+  </section>
 
-  </main>
-</div>
+  <!-- MAP -->
+  <section id="mapPage" class="page">
+    <h1>TPAO Oil Fields Map</h1>
+    <div id="map"></div>
+  </section>
+
+</main>
+
+<script>
+/* Sidebar toggle */
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('show');
+}
+
+/* Page routing */
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+
+  if (page === 'dashboard') {
+    document.getElementById('dashboard').classList.add('active');
+  }
+  if (page === 'production') {
+    document.getElementById('production').classList.add('active');
+  }
+  if (page === 'map') {
+    document.getElementById('mapPage').classList.add('active');
+    setTimeout(initMap, 300);
+  }
+
+  event.target.classList.add('active');
+}
+
+/* Chart */
+new Chart(document.getElementById('productionChart'), {
+  type: 'line',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets: [{
+      label: 'Barrels per Day',
+      data: [120, 135, 140, 150, 145, 160],
+      borderColor: '#22c55e',
+      tension: 0.4
+    }]
+  }
+});
+
+/* Map */
+let mapLoaded = false;
+function initMap() {
+  if (mapLoaded) return;
+  mapLoaded = true;
+
+  const map = L.map('map').setView([39, 35], 5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+  L.marker([37.88, 41.13]).addTo(map).bindPopup("Batman Oil Field");
+  L.marker([40.4, 49.9]).addTo(map).bindPopup("Caspian Block");
+}
+</script>
 
 </body>
 </html>
