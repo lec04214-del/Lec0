@@ -20,13 +20,36 @@
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- 🔧 SMALL FIX STYLE (ONLY FOR HEADER OFFSET) -->
+  <style>
+    .top-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background: #0f172a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      z-index: 1200;
+    }
+
+    .main {
+      padding-top: 80px; /* prevents overlap */
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ===== TOP HEADER ===== -->
+<!-- ✅ TOP HEADER (FIX) -->
 <header class="top-header">
-  <h1>Türkiye Petrolleri Anonim Ortaklığı (TPAO)</h1>
+  Türkiye Petrolleri Anonim Ortaklığı (TPAO)
 </header>
 
 <!-- Overlay -->
@@ -37,10 +60,7 @@
 
 <!-- Sidebar -->
 <aside class="sidebar" id="sidebar">
-  <h2 class="logo">
-    Türkiye Petrolleri<br>
-    <span>TPAO</span>
-  </h2>
+  <h2 class="logo">TPAO</h2>
   <nav>
     <a class="active" data-page="dashboard">Dashboard</a>
     <a data-page="production">Production</a>
@@ -60,8 +80,7 @@
         <h1>TPAO Petroleum Dashboard</h1>
         <p>
           Türkiye Petrolleri Anonim Ortaklığı (TPAO) provides strategic leadership
-          in oil and gas exploration, production, and energy security across
-          Türkiye and international regions.
+          in oil and gas exploration, production, and energy security.
         </p>
       </div>
     </div>
@@ -120,10 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.getElementById('sidebar');
   const overlay = document.getElementById('overlay');
   const menuBtn = document.getElementById('menuBtn');
-  let currentPage = 'dashboard';
   let mapLoaded = false;
 
-  /* ===== SIDEBAR ===== */
   function openSidebar() {
     sidebar.classList.add('show');
     overlay.classList.add('show');
@@ -140,13 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   overlay.onclick = closeSidebar;
 
-  /* ===== NAVIGATION ===== */
   document.querySelectorAll('.sidebar a').forEach(link => {
     link.onclick = () => navigate(link.dataset.page);
   });
 
   function navigate(page) {
-    currentPage = page;
     showPage(page);
     closeSidebar();
     history.pushState({ page }, '', `#${page}`);
@@ -166,13 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(`.sidebar a[data-page="${page}"]`)?.classList.add('active');
   }
 
-  /* ===== BACK BUTTON ===== */
-  window.onpopstate = e => {
-    if (!e.state) return;
-    showPage(e.state.page);
-  };
-
-  /* ===== CHART ===== */
   new Chart(document.getElementById('productionChart'), {
     type: 'line',
     data: {
@@ -186,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ===== MAP ===== */
   function initMap() {
     if (mapLoaded) return;
     mapLoaded = true;
