@@ -5,44 +5,45 @@
 <title>TPAO Petroleum Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- MAIN CSS -->
 <link rel="stylesheet" href="index.css">
-
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
+
+<!-- MOBILE OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<!-- HAMBURGER BUTTON (MOVED AWAY FROM DASHBOARD) -->
+<div class="menu-btn" onclick="toggleSidebar()">
+  <i class="fas fa-bars"></i>
+</div>
 
 <div class="dashboard">
 
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
     <h2>TPAO Petroleum</h2>
-    <a href="#overview" onclick="navigate('overview')"><i class="fas fa-chart-line"></i> Overview</a>
-    <a href="#production" onclick="navigate('production')"><i class="fas fa-industry"></i> Production</a>
-    <a href="#revenue" onclick="navigate('revenue')"><i class="fas fa-dollar-sign"></i> Revenue</a>
-    <a href="#fields" onclick="navigate('fields')"><i class="fas fa-oil-well"></i> Oil Fields</a>
-    <a href="#contact" onclick="navigate('contact')"><i class="fas fa-envelope"></i> Contact</a>
+
+    <a href="index.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+    <a href="production.html"><i class="fas fa-industry"></i> Production</a>
+    <a href="revenue.html"><i class="fas fa-dollar-sign"></i> Revenue</a>
+    <a href="fields.html"><i class="fas fa-oil-well"></i> Oil Fields</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
   </aside>
 
   <!-- MAIN CONTENT -->
   <main class="main">
 
-    <!-- HEADER -->
     <header class="header">
-      <span class="menu-btn" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i>
-      </span>
       <h1>TPAO Petroleum Company Dashboard</h1>
       <p>Operational insights, production performance and corporate overview</p>
     </header>
 
-    <!-- DASHBOARD CARDS -->
     <section class="cards">
 
-      <article class="card" id="overview">
-        <img src="https://images.unsplash.com/photo-1581091870627-3c5f2c1cfb34" alt="Overview">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1581091870627-3c5f2c1cfb34">
         <div class="card-content">
           <h3>Company Overview</h3>
           <p>
@@ -52,42 +53,41 @@
         </div>
       </article>
 
-      <article class="card" id="production">
-        <img src="https://images.unsplash.com/photo-1601134467661-3c0b2fdd0a41" alt="Production">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1601134467661-3c0b2fdd0a41">
         <div class="card-content">
           <h3>Production Operations</h3>
           <p>
-            Our production facilities utilize advanced technology to ensure
-            efficient extraction while maintaining strict safety and environmental standards.
+            Advanced production facilities ensure efficiency, safety,
+            and environmentally responsible extraction processes.
           </p>
         </div>
       </article>
 
-      <article class="card" id="revenue">
-        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c" alt="Revenue">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c">
         <div class="card-content">
           <h3>Revenue Performance</h3>
           <p>
-            TPAO continues to deliver strong financial growth through strategic
-            investments, operational excellence, and global energy partnerships.
+            Strong financial growth driven by strategic investments,
+            global partnerships, and operational excellence.
           </p>
         </div>
       </article>
 
-      <article class="card" id="fields">
-        <img src="https://images.unsplash.com/photo-1617957743094-8f69bdf9b9c4" alt="Oil Fields">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1617957743094-8f69bdf9b9c4">
         <div class="card-content">
           <h3>Oil Fields</h3>
           <p>
-            Our oil fields span multiple regions, ensuring energy security
-            while supporting local economies and infrastructure development.
+            Multiple oil fields across regions supporting energy security
+            and local economic development.
           </p>
         </div>
       </article>
 
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer" id="contact">
       <p>Connect with TPAO Petroleum</p>
 
@@ -98,26 +98,25 @@
         <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
 
-      <p class="copyright">
-        © 2025 TPAO Petroleum Company
-      </p>
+      <p class="copyright">© 2025 TPAO Petroleum Company</p>
     </footer>
 
   </main>
 </div>
 
-<!-- JAVASCRIPT -->
 <script>
 function toggleSidebar() {
-  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("sidebar").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
 }
 
-function navigate(section) {
-  history.pushState({page: section}, "", "#" + section);
+function closeSidebar() {
+  document.getElementById("sidebar").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
 }
 
 window.onpopstate = function () {
-  document.getElementById("sidebar").classList.remove("active");
+  closeSidebar();
 };
 </script>
 
