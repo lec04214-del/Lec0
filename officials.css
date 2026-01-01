@@ -1,5 +1,5 @@
 /* =====================
-   RESET & BASE
+RESET & BASE
 ===================== */
 * {
   margin: 0;
@@ -15,33 +15,42 @@ body {
 }
 
 /* =====================
-   FIXED HEADER
+FIXED HEADER (UPDATED)
 ===================== */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 90px; /* increased height */
   background: #020617;
   color: #ffffff;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 25px;
+  flex-direction: column; /* logo on top, nav below */
+  justify-content: center;
+  padding: 10px 25px;
   z-index: 1000;
 }
 
+/* COMPANY NAME (SMALLER) */
 .logo {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 0.9rem; /* smaller than before */
+  font-weight: 600;
   letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+/* NAVIGATION LINKS */
+.nav {
+  display: flex;
+  flex-wrap: nowrap;   /* keep links on one line */
+  white-space: nowrap; /* prevent wrapping */
 }
 
 .nav a {
-  margin-left: 20px;
+  margin-right: 18px;
   color: #e5e7eb;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -52,11 +61,11 @@ body {
 }
 
 /* =====================
-   MAIN DASHBOARD
+MAIN DASHBOARD
 ===================== */
 .dashboard {
   max-width: 1200px;
-  margin: 100px auto 40px;
+  margin: 120px auto 40px; /* adjusted for taller header */
   padding: 0 20px;
 }
 
@@ -73,7 +82,7 @@ body {
 }
 
 /* =====================
-   OFFICIALS GRID
+OFFICIALS GRID
 ===================== */
 .officials {
   display: grid;
@@ -115,7 +124,7 @@ body {
 }
 
 /* =====================
-   FOOTER & SOCIALS
+FOOTER & SOCIALS
 ===================== */
 .footer {
   margin-top: 60px;
