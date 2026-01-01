@@ -83,18 +83,27 @@ body {
 
 .official-card {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
+  text-align: center;
 }
 
 .official-card:hover {
   transform: translateY(-5px);
 }
 
+.official-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
 .official-card h2 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 5px;
   color: #020617;
 }
