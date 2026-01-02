@@ -1,0 +1,162 @@
+/* =====================
+   RESET & BASE
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* =====================
+   FIXED HEADER
+===================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #020617;
+  padding: 12px 25px;
+  z-index: 1000;
+}
+
+.brand {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+}
+
+.nav a {
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #38bdf8;
+}
+
+/* =====================
+   MAIN DASHBOARD
+===================== */
+.dashboard {
+  max-width: 1200px;
+  margin: 120px auto 60px;
+  padding: 0 20px;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  color: #020617;
+}
+
+.page-subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 40px;
+  max-width: 850px;
+}
+
+/* =====================
+   STAFFS GRID
+===================== */
+.staffs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.staff-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.staff-card:hover {
+  transform: translateY(-5px);
+}
+
+.staff-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.staff-card h2 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: #020617;
+}
+
+.role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 4px;
+}
+
+.department {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+/* =====================
+   FOOTER
+===================== */
+.footer {
+  margin-top: 80px;
+  background: #020617;
+  color: #cbd5f5;
+  text-align: center;
+  padding: 25px 20px;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.socials a {
+  margin: 0 10px;
+  color: #38bdf8;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  text-decoration: underline;
+  }
