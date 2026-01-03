@@ -25,6 +25,15 @@ header {
   padding: 15px 20px;
 }
 
+/* HAMBURGER */
+.menu-icon {
+  font-size: 26px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 /* COMPANY NAME */
 .company-name {
   color: #fff;
@@ -33,20 +42,8 @@ header {
   margin-left: 15px;
 }
 
-/* HAMBURGER */
-.menu-icon {
-  font-size: 26px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* HIDE CHECKBOX */
-#menu-toggle {
-  display: none;
-}
-
 /* SIDE MENU */
-.side-menu {
+nav {
   position: fixed;
   top: 60px;
   left: -260px;
@@ -60,20 +57,19 @@ header {
   z-index: 1001;
 }
 
-.side-menu a {
+nav.open {
+  left: 0;
+}
+
+nav a {
   color: #fff;
   text-decoration: none;
   padding: 15px 0;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
-/* SHOW MENU */
-#menu-toggle:checked ~ .side-menu {
-  left: 0;
-}
-
 /* OVERLAY */
-.overlay {
+#overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.4);
@@ -83,13 +79,12 @@ header {
   z-index: 1000;
 }
 
-/* SHOW OVERLAY */
-#menu-toggle:checked ~ .overlay {
+#overlay.show {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* MAIN CONTENT */
+/* CONTENT */
 .container {
   max-width: 900px;
   margin: 140px auto 60px;
@@ -103,11 +98,6 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
   margin-bottom: 40px;
-}
-
-.contact-info h3 {
-  color: #0b1c2d;
-  margin-bottom: 8px;
 }
 
 /* MAP */
@@ -124,4 +114,4 @@ footer {
   color: #fff;
   text-align: center;
   padding: 20px;
-  }
+}
