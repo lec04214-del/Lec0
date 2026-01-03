@@ -4,91 +4,88 @@
   <meta charset="UTF-8">
   <title>Contact Us | TPAO Petroleum</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-container">
-      <div class="company-name">TPAO Petroleum Company</div>
+<!-- OVERLAY (tap to close menu) -->
+<label for="menu-toggle" class="overlay"></label>
 
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+<!-- HEADER -->
+<header>
+  <div class="header-container">
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-      </nav>
+    <!-- HAMBURGER (LEFT) -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+    <!-- COMPANY NAME -->
+    <div class="company-name">TPAO Petroleum Company</div>
+
+    <!-- NAVIGATION -->
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+  <h1>Contact Us</h1>
+  <p>
+    For official correspondence, partnerships, and corporate inquiries,
+    please use the contact information below.
+  </p>
+
+  <!-- CONTACT DETAILS -->
+  <section class="contact-info">
+    <div>
+      <h3>Head Office Address</h3>
+      <p>
+        Turkish Petroleum Corporation (TPAO)<br>
+        Söğütözü Mahallesi, 2180. Cadde No: 10<br>
+        Çankaya, Ankara 06510<br>
+        Republic of Türkiye
+      </p>
     </div>
-  </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="container">
-    <h1>Contact Us</h1>
-    <p>
-      For official correspondence, partnerships, and corporate inquiries,
-      please use the contact details below.
-    </p>
+    <div>
+      <h3>Email Address</h3>
+      <p>corporate@tpao.gov.tr</p>
+    </div>
 
-    <!-- CONTACT DETAILS -->
-    <section class="contact-info">
-      <div>
-        <h3>Head Office Address</h3>
-        <p>
-          Turkish Petroleum Corporation (TPAO)<br>
-          Söğütözü Mahallesi, 2180. Cadde No: 10<br>
-          Çankaya, Ankara 06510<br>
-          Republic of Türkiye
-        </p>
-      </div>
+    <div>
+      <h3>Telephone</h3>
+      <p>+90 312 207 2000</p>
+    </div>
 
-      <div>
-        <h3>Email Address</h3>
-        <p>corporate@tpao.gov.tr</p>
-      </div>
+    <div>
+      <h3>Office Hours</h3>
+      <p>
+        Monday – Friday<br>
+        08:30 AM – 05:30 PM
+      </p>
+    </div>
+  </section>
 
-      <div>
-        <h3>Telephone</h3>
-        <p>+90 312 207 2000</p>
-      </div>
+  <!-- MAP -->
+  <section class="map">
+    <iframe
+      src="https://www.google.com/maps?q=Söğütözü,Ankara,Turkey&output=embed"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+  </section>
+</main>
 
-      <div>
-        <h3>Office Hours</h3>
-        <p>Monday – Friday<br>08:30 AM – 05:30 PM</p>
-      </div>
-    </section>
-
-    <!-- SIMPLE CONTACT FORM (NO MESSAGE BOX) -->
-    <section class="form-section">
-      <h2>Quick Contact</h2>
-
-      <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Subject">
-        <button type="submit">Submit</button>
-      </form>
-    </section>
-
-    <!-- MAP -->
-    <section class="map">
-      <iframe
-        src="https://www.google.com/maps?q=Söğütözü,Ankara,Turkey&output=embed"
-        loading="lazy"
-        allowfullscreen>
-      </iframe>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 TPAO Petroleum Company. All Rights Reserved.
-  </footer>
+<!-- FOOTER -->
+<footer>
+  © 2026 TPAO Petroleum Company. All Rights Reserved.
+</footer>
 
 </body>
 </html>
