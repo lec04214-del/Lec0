@@ -20,18 +20,44 @@ body {
 header {
   background: #052e16;
   color: #ffffff;
-  padding: 20px;
+  padding: 20px 20px 25px;
   text-align: center;
 }
 
+/* Title */
 header h1 {
   font-size: 1.8rem;
   letter-spacing: 1px;
+  margin-bottom: 6px;
 }
 
+/* Subtitle */
 header p {
   font-size: 0.9rem;
   opacity: 0.85;
+  margin-bottom: 15px;
+}
+
+/* NAV LINKS */
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  color: #c7f9cc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+header nav a:hover {
+  background: #c7f9cc;
+  color: #052e16;
 }
 
 /* =====================
