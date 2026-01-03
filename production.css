@@ -12,30 +12,34 @@ body {
   background-color: #f4f6f8;
   color: #333;
   line-height: 1.6;
+
+  /* ✅ THIS IS THE CRITICAL FIX */
+  padding-top: 150px;
 }
 
 /* =====================
-   HEADER (FIXED & SAFE)
+   HEADER (FIXED)
 ===================== */
-header {
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #0b3d91;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
   padding: 15px 10px;
-  z-index: 1000;
+  z-index: 9999;
 }
 
-/* Company name */
-header h1 {
+.site-header h1 {
   font-size: 22px;
   margin-bottom: 6px;
 }
 
-/* Page links under company name */
+/* =====================
+   HEADER LINKS
+===================== */
 .header-links {
   display: flex;
   justify-content: center;
@@ -44,7 +48,7 @@ header h1 {
 }
 
 .header-links a {
-  color: #ffffff;          /* 1️⃣ white links */
+  color: #ffffff;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -54,22 +58,20 @@ header h1 {
   text-decoration: underline;
 }
 
-/* Subtitle */
-header p {
+.site-header p {
   font-size: 14px;
   opacity: 0.9;
 }
 
 /* =====================
-   MAIN CONTENT OFFSET
-   (prevents header overlap)
+   DASHBOARD
 ===================== */
 .dashboard {
-  padding: 160px 20px 40px; /* 3️⃣ pushes content below fixed header */
+  padding: 20px;
 }
 
 /* =====================
-   STATS SECTION
+   STATS
 ===================== */
 .stats {
   display: grid;
@@ -79,17 +81,16 @@ header p {
 }
 
 .card {
-  background-color: #ffffff;
+  background: #ffffff;
   padding: 20px;
   border-radius: 6px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .card h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
   color: #0b3d91;
+  margin-bottom: 10px;
 }
 
 .card p {
@@ -107,30 +108,25 @@ header p {
 }
 
 .section-box {
-  background-color: #ffffff;
+  background: #ffffff;
   padding: 25px;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .section-box h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
   color: #0b3d91;
-}
-
-.section-box p {
-  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 /* =====================
    FOOTER
 ===================== */
 footer {
-  text-align: center;
+  margin-top: 40px;
   padding: 20px;
   background-color: #0b3d91;
   color: #ffffff;
+  text-align: center;
   font-size: 14px;
-  margin-top: 40px;
 }
