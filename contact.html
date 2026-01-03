@@ -9,27 +9,23 @@
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-container">
 
-    <!-- HAMBURGER -->
-    <button class="menu-icon" id="openMenu">&#9776;</button>
-
     <div class="company-name">TPAO Petroleum Company</div>
+
+    <!-- PAGE LINKS UNDER COMPANY NAME -->
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html" class="active">Contact Us</a>
+    </nav>
 
   </div>
 </header>
 
-<!-- SIDE MENU -->
-<nav id="sideMenu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="contact.html">Contact Us</a>
-</nav>
-
-<!-- OVERLAY -->
-<div id="overlay"></div>
-
+<!-- MAIN CONTENT -->
 <main class="container">
   <h1>Contact Us</h1>
   <p>
@@ -49,7 +45,7 @@
     </div>
 
     <div>
-      <h3>Email</h3>
+      <h3>Email Address</h3>
       <p>corporate@tpao.gov.tr</p>
     </div>
 
@@ -60,7 +56,10 @@
 
     <div>
       <h3>Office Hours</h3>
-      <p>Monday – Friday<br>08:30 AM – 05:30 PM</p>
+      <p>
+        Monday – Friday<br>
+        08:30 AM – 05:30 PM
+      </p>
     </div>
   </section>
 
@@ -73,37 +72,10 @@
   </section>
 </main>
 
+<!-- FOOTER -->
 <footer>
   © 2026 TPAO Petroleum Company. All Rights Reserved.
 </footer>
-
-<!-- ✅ REQUIRED JS -->
-<script>
-  const menu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
-  const openBtn = document.getElementById("openMenu");
-
-  function openMenu() {
-    menu.classList.add("open");
-    overlay.classList.add("show");
-    history.pushState({ menu: true }, "");
-  }
-
-  function closeMenu() {
-    menu.classList.remove("open");
-    overlay.classList.remove("show");
-  }
-
-  openBtn.addEventListener("click", openMenu);
-  overlay.addEventListener("click", closeMenu);
-
-  // Android BACK button handling
-  window.addEventListener("popstate", () => {
-    if (menu.classList.contains("open")) {
-      closeMenu();
-    }
-  });
-</script>
 
 </body>
 </html>
