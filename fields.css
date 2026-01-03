@@ -38,7 +38,7 @@ header h1 {
 header p {
   font-size: 0.8rem;
   opacity: 0.85;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 /* HEADER LINKS */
@@ -64,11 +64,14 @@ header p {
 
 /* =====================
    DASHBOARD LAYOUT
+   (FIX: EXTRA TOP SPACE)
 ===================== */
 .dashboard {
   max-width: 1200px;
   margin: 20px auto;
-  padding: 95px 20px 0;
+
+  /* 🔴 IMPORTANT FIX */
+  padding: 130px 20px 0;
 }
 
 /* =====================
@@ -143,4 +146,4 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 0.85rem;
-   }
+}
