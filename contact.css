@@ -20,11 +20,9 @@ header {
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 15px 20px;
   display: flex;
   align-items: center;
+  padding: 15px 20px;
 }
 
 /* COMPANY NAME */
@@ -47,30 +45,30 @@ header {
   display: none;
 }
 
-/* SLIDE-OUT MENU (3 LINKS) */
-nav {
+/* SIDE MENU */
+.side-menu {
   position: fixed;
   top: 60px;
-  left: -100%;
+  left: -260px;
   width: 260px;
   height: 100vh;
   background: #0b1c2d;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  transition: 0.3s ease;
+  transition: left 0.3s ease;
+  z-index: 1001;
 }
 
-nav a {
+.side-menu a {
   color: #fff;
   text-decoration: none;
   padding: 15px 0;
-  font-size: 16px;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 /* SHOW MENU */
-#menu-toggle:checked ~ nav {
+#menu-toggle:checked ~ .side-menu {
   left: 0;
 }
 
@@ -79,13 +77,16 @@ nav a {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.4);
-  display: none;
-  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
 }
 
 /* SHOW OVERLAY */
 #menu-toggle:checked ~ .overlay {
-  display: block;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* MAIN CONTENT */
@@ -97,17 +98,6 @@ nav a {
   border-radius: 8px;
 }
 
-h1 {
-  color: #0b1c2d;
-  margin-bottom: 10px;
-}
-
-p {
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-/* CONTACT INFO */
 .contact-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -134,4 +124,4 @@ footer {
   color: #fff;
   text-align: center;
   padding: 20px;
-}
+  }
