@@ -15,7 +15,7 @@ body {
 }
 
 /* =====================
-   HEADER (FIXED + COMPACT)
+   HEADER (STICKY – NO OVERLAP)
 ===================== */
 header {
   background: #1e3a8a;
@@ -23,10 +23,8 @@ header {
   padding: 12px 20px;
   text-align: center;
 
-  position: fixed;
+  position: sticky;   /* ✅ FIX */
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 1000;
 }
 
@@ -64,14 +62,11 @@ header p {
 
 /* =====================
    DASHBOARD LAYOUT
-   (FIX: EXTRA TOP SPACE)
 ===================== */
 .dashboard {
   max-width: 1200px;
-  margin: 20px auto;
-
-  /* 🔴 IMPORTANT FIX */
-  padding: 130px 20px 0;
+  margin: 30px auto;
+  padding: 0 20px;   /* ✅ NO top padding needed */
 }
 
 /* =====================
