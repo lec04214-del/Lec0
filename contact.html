@@ -2,95 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us | Global Job Agency</title>
+  <title>Contact Us | TPAO Petroleum</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- CSS -->
   <link rel="stylesheet" href="contact.css">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
 
-  <!-- Header (FIXED) -->
-  <header class="contact-header">
-    <div class="header-content">
-      <h1>Global Job Agency</h1>
-      <p class="tagline">We connect talents to global opportunities</p>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="company-name">TPAO Petroleum Company</div>
 
-      <!-- Navigation Links -->
-      <nav class="header-nav">
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+      <nav>
         <a href="index.html">Home</a>
-        <a href="jobs.html">Jobs</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
       </nav>
     </div>
   </header>
 
-  <!-- Spacer to prevent overlap -->
-  <div class="header-space"></div>
+  <!-- CONTACT SECTION -->
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>
+      Reach out to TPAO Petroleum Company for inquiries, partnerships,
+      or professional services.
+    </p>
 
-  <!-- Contact Section -->
-  <section class="contact-container">
+    <!-- CONTACT INFO -->
+    <div class="contact-info">
+      <div>
+        <h3>Office Address</h3>
+        <p>Ankara Headquarters<br>Turkey</p>
+      </div>
 
-    <!-- Contact Info -->
-    <div class="contact-box">
-      <h2>Get In Touch</h2>
+      <div>
+        <h3>Email</h3>
+        <p>info@tpaopetroleum.com</p>
+      </div>
 
-      <p>
-        <i class="fas fa-phone"></i>
-        Phone:
-        <a href="tel:+1234567890">+1 234 567 890</a>
-      </p>
-
-      <p>
-        <i class="fas fa-envelope"></i>
-        Email:
-        <a href="mailto:info@globaljobagency.com">info@globaljobagency.com</a>
-      </p>
-
-      <p>
-        <i class="fab fa-whatsapp"></i>
-        WhatsApp:
-        <a href="https://wa.me/1234567890" target="_blank">Chat on WhatsApp</a>
-      </p>
-
-      <p>
-        <i class="fas fa-location-dot"></i>
-        Address:
-        <span>12 International Way, Business District, London, UK</span>
-      </p>
-    </div>
-
-    <!-- Social Media -->
-    <div class="contact-box">
-      <h2>Follow Us</h2>
-
-      <div class="social-links">
-        <a href="https://facebook.com" target="_blank">
-          <i class="fab fa-facebook-f"></i> Facebook
-        </a>
-
-        <a href="https://twitter.com" target="_blank">
-          <i class="fab fa-x-twitter"></i> Twitter
-        </a>
-
-        <a href="https://instagram.com" target="_blank">
-          <i class="fab fa-instagram"></i> Instagram
-        </a>
-
-        <a href="https://linkedin.com" target="_blank">
-          <i class="fab fa-linkedin-in"></i> LinkedIn
-        </a>
+      <div>
+        <h3>Phone</h3>
+        <p>+90 312 000 0000</p>
       </div>
     </div>
 
-  </section>
+    <!-- FORM -->
+    <form>
+      <input type="text" placeholder="Your Full Name" required>
+      <input type="email" placeholder="Your Email Address" required>
+      <input type="text" placeholder="Subject">
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
 
-  <!-- Footer -->
-  <footer class="contact-footer">
-    <p>© 2025 Global Job Agency. All rights reserved.</p>
+    <!-- MAP -->
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps?q=Ankara,Turkey&output=embed"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 TPAO Petroleum Company. All Rights Reserved.
   </footer>
 
 </body>
