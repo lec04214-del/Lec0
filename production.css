@@ -8,43 +8,68 @@
 }
 
 body {
-  font-family: "Segoe UI", system-ui, sans-serif;
-  background: #f1f5f9;
-  color: #1e293b;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
   line-height: 1.6;
 }
 
 /* =====================
-   HEADER
+   HEADER (FIXED & SAFE)
 ===================== */
 header {
-  background: #0f172a;
-  color: #ffffff;
-  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0b3d91;
+  color: #fff;
   text-align: center;
+  padding: 15px 10px;
+  z-index: 1000;
 }
 
+/* Company name */
 header h1 {
-  font-size: 1.8rem;
-  letter-spacing: 1px;
+  font-size: 22px;
+  margin-bottom: 6px;
 }
 
+/* Page links under company name */
+.header-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 6px;
+}
+
+.header-links a {
+  color: #ffffff;          /* 1️⃣ white links */
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header-links a:hover {
+  text-decoration: underline;
+}
+
+/* Subtitle */
 header p {
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
 /* =====================
-   DASHBOARD LAYOUT
+   MAIN CONTENT OFFSET
+   (prevents header overlap)
 ===================== */
 .dashboard {
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 20px;
+  padding: 160px 20px 40px; /* 3️⃣ pushes content below fixed header */
 }
 
 /* =====================
-   STATS CARDS
+   STATS SECTION
 ===================== */
 .stats {
   display: grid;
@@ -54,32 +79,26 @@ header p {
 }
 
 .card {
-  background: #ffffff;
-  border-radius: 12px;
+  background-color: #ffffff;
   padding: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card h3 {
-  font-size: 0.85rem;
-  color: #64748b;
+  font-size: 16px;
   margin-bottom: 10px;
-  text-transform: uppercase;
+  color: #0b3d91;
 }
 
 .card p {
-  font-size: 1.8rem;
+  font-size: 20px;
   font-weight: bold;
-  color: #0f172a;
 }
 
 /* =====================
-   PRODUCTION SECTIONS
+   SECTIONS
 ===================== */
 .sections {
   display: grid;
@@ -88,31 +107,30 @@ header p {
 }
 
 .section-box {
-  background: #ffffff;
-  border-radius: 12px;
+  background-color: #ffffff;
   padding: 25px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .section-box h2 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #0f172a;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #0b3d91;
 }
 
 .section-box p {
-  font-size: 0.95rem;
-  color: #475569;
+  font-size: 14px;
 }
 
 /* =====================
    FOOTER
 ===================== */
 footer {
-  margin-top: 50px;
-  background: #0f172a;
-  color: #cbd5f5;
   text-align: center;
   padding: 20px;
-  font-size: 0.85rem;
-  }
+  background-color: #0b3d91;
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: 40px;
+}
