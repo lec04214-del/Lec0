@@ -12,27 +12,23 @@
 <header>
   <div class="header-container">
 
-    <!-- MENU TOGGLE -->
-    <input type="checkbox" id="menu-toggle">
+    <!-- HAMBURGER -->
+    <button class="menu-icon" id="openMenu">&#9776;</button>
 
-    <!-- HAMBURGER (LEFT) -->
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
-
-    <!-- COMPANY NAME -->
     <div class="company-name">TPAO Petroleum Company</div>
-
-    <!-- SLIDE MENU (3 LINKS) -->
-    <nav class="side-menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
-
-    <!-- OVERLAY (tap to close) -->
-    <label for="menu-toggle" class="overlay"></label>
 
   </div>
 </header>
+
+<!-- SIDE MENU -->
+<nav id="sideMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact Us</a>
+</nav>
+
+<!-- OVERLAY -->
+<div id="overlay"></div>
 
 <main class="container">
   <h1>Contact Us</h1>
@@ -80,6 +76,34 @@
 <footer>
   © 2026 TPAO Petroleum Company. All Rights Reserved.
 </footer>
+
+<!-- ✅ REQUIRED JS -->
+<script>
+  const menu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const openBtn = document.getElementById("openMenu");
+
+  function openMenu() {
+    menu.classList.add("open");
+    overlay.classList.add("show");
+    history.pushState({ menu: true }, "");
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    overlay.classList.remove("show");
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  // Android BACK button handling
+  window.addEventListener("popstate", () => {
+    if (menu.classList.contains("open")) {
+      closeMenu();
+    }
+  });
+</script>
 
 </body>
 </html>
