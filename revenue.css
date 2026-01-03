@@ -17,45 +17,44 @@ body {
 /* =====================
    HEADER
 ===================== */
-header {
+.site-header {
   background: #052e16;
   color: #ffffff;
-  padding: 20px 20px 25px;
+  padding: 20px;
   text-align: center;
 }
 
-/* Title */
-header h1 {
+.site-header h1 {
   font-size: 1.8rem;
   letter-spacing: 1px;
   margin-bottom: 6px;
 }
 
-/* Subtitle */
-header p {
+.site-header p {
   font-size: 0.9rem;
   opacity: 0.85;
   margin-bottom: 15px;
 }
 
-/* NAV LINKS */
-header nav {
+/* NAVIGATION */
+.header-nav {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-header nav a {
+.header-nav a {
   color: #c7f9cc;
   text-decoration: none;
   font-size: 0.9rem;
   padding: 6px 14px;
   border-radius: 20px;
+  border: 1px solid #c7f9cc;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-header nav a:hover {
+.header-nav a:hover {
   background: #c7f9cc;
   color: #052e16;
 }
@@ -141,4 +140,4 @@ footer {
   text-align: center;
   padding: 20px;
   font-size: 0.85rem;
-}
+   }
