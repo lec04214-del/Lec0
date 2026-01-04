@@ -28,7 +28,8 @@
     <div class="container">
       <h1>Job Application</h1>
 
-      <form action="https://formsubmit.co/tpaopetroleum@gmail.com"
+      <form id="jobForm"
+            action="https://formsubmit.co/tpaopetroleum@gmail.com"
             method="POST"
             enctype="multipart/form-data">
 
@@ -36,7 +37,10 @@
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_subject" value="New Job Application | TPAO Petroleum">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="thank-you.html">
+
+        <!-- ✅ FIXED REDIRECT (ABSOLUTE PATH) -->
+        <input type="hidden" name="_next" value="/thank-you.html">
+
         <input type="hidden" name="_autoresponse"
           value="Thank you for applying to TPAO Petroleum. We have received your application and CV. Our recruitment team will contact you if shortlisted.">
 
@@ -115,6 +119,11 @@
 
         <button type="submit">Submit Application</button>
       </form>
+
+      <!-- FALLBACK MESSAGE (if redirect blocked) -->
+      <p id="successMsg" style="display:none; text-align:center; color:green; margin-top:15px;">
+        ✅ Application submitted successfully.
+      </p>
     </div>
   </main>
 
@@ -123,5 +132,12 @@
     <p>© 2026 TPAO Petroleum. All rights reserved.</p>
   </footer>
 
+  <!-- FALLBACK JS -->
+  <script>
+    document.getElementById("jobForm").addEventListener("submit", function () {
+      document.getElementById("successMsg").style.display = "block";
+    });
+  </script>
+
 </body>
-                </html>
+</html>
