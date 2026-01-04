@@ -25,31 +25,38 @@
       Submit your application to join TPAO Petroleum Company
     </p>
 
+    <!-- EMPLOYMENT FORM -->
     <form
       class="employment-form"
-      action="mailto:careers@tpao.com"
-      method="post"
+      action="https://formsubmit.co/tpaopetroleum@gmail.com"
+      method="POST"
       enctype="multipart/form-data"
     >
 
+      <!-- FormSubmit Settings -->
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="New Employment Application - TPAO Petroleum">
+      <input type="hidden" name="_next" value="success.html">
+      <input type="hidden" name="_captcha" value="true">
+
       <div class="form-group">
         <label>Full Name</label>
-        <input type="text" name="fullname" required>
+        <input type="text" name="Full Name" required>
       </div>
 
       <div class="form-group">
         <label>Email Address</label>
-        <input type="email" name="email" required>
+        <input type="email" name="Email" required>
       </div>
 
       <div class="form-group">
         <label>Phone Number</label>
-        <input type="tel" name="phone" required>
+        <input type="tel" name="Phone Number" required>
       </div>
 
       <div class="form-group">
         <label>Position Applying For</label>
-        <select name="position" required>
+        <select name="Position" required>
           <option value="">Select position</option>
           <option>Petroleum Engineer</option>
           <option>Field Technician</option>
@@ -60,12 +67,12 @@
 
       <div class="form-group">
         <label>Cover Letter</label>
-        <textarea name="coverletter" rows="5"></textarea>
+        <textarea name="Cover Letter" rows="5"></textarea>
       </div>
 
       <div class="form-group">
         <label>Upload CV / Resume</label>
-        <input type="file" name="cv" accept=".pdf,.doc,.docx">
+        <input type="file" name="Resume" accept=".pdf,.doc,.docx" required>
       </div>
 
       <button type="submit">Submit Application</button>
@@ -83,4 +90,4 @@
   </footer>
 
 </body>
-</html>
+  </html>
