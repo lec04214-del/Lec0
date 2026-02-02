@@ -196,38 +196,33 @@ body {
 /* =========================
    Footer Base Styles
 ========================= */
+/* Remove default browser spacing */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-width footer */
 .footer {
-  margin-top: 40px;
-  padding: 50px 20px; /* keep your existing padding */
+  width: 100vw;              /* force full viewport width */
+  margin: 0;                 /* no left/right gaps */
+  padding: 50px 20px;        /* keep your spacing inside */
   background: linear-gradient(135deg, #0d0f2b, #020617);
   color: #cbd5f5;
   text-align: center;
-  border-radius: 0; /* changed to 0 for full-width edge-to-edge */
-  width: 100%;       /* full width */
-  margin-left: 0;    /* ensures it touches left edge */
-  margin-right: 0;   /* ensures it touches right edge */
+  border-radius: 0;          /* must be 0 for edge-to-edge */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.footer:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
-}
-
-/* =========================
-Footer Paragraphs
-========================= */
+/* Footer text */
 .footer p {
   margin: 12px 0;
   font-size: 1.05rem;
   line-height: 1.6;
 }
 
-/* =========================
-Social Links Container
-========================= */
+/* Social links container */
 .footer .social-links {
   margin: 25px 0;
   display: flex;
@@ -236,9 +231,7 @@ Social Links Container
   flex-wrap: wrap;
 }
 
-/* =========================
-Social Link Icons
-========================= */
+/* Social icons */
 .footer .social-links a {
   display: flex;
   align-items: center;
@@ -249,25 +242,20 @@ Social Link Icons
   background: linear-gradient(135deg, #1f2340, #2e3a63);
   color: #7f9cf5;
   font-size: 1.4rem;
-  transition: all 0.4s ease;
   text-decoration: none;
+  transition: all 0.4s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .footer .social-links a:hover {
   background: linear-gradient(135deg, #7f9cf5, #5a6fe0);
   color: #fff;
-  transform: scale(1.2) rotate(10deg);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transform: scale(1.15);
 }
 
-.footer .social-links a i {
-  pointer-events: none;
-}
-
+/* Copyright */
 .footer .copyright {
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 0.95rem;
   color: #9aa7f0;
-  letter-spacing: 0.5px;
 }
