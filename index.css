@@ -264,7 +264,7 @@ body {
 /* Responsive Footer */
 @media (max-width: 600px) {
   .footer {
-    padding: 35px 15px;
+    padding: 15px 5px;
   }
 
   .footer .social-links a {
