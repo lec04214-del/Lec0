@@ -198,12 +198,14 @@ body {
 ========================= */
 .footer {
   margin-top: 40px;
-  padding: 50px 20px;
+  padding: 50px 20px; /* keep your existing padding */
   background: linear-gradient(135deg, #0d0f2b, #020617);
   color: #cbd5f5;
   text-align: center;
-  border-radius: 20px;
-  width: 100%;
+  border-radius: 0; /* changed to 0 for full-width edge-to-edge */
+  width: 100%;       /* full width */
+  margin-left: 0;    /* ensures it touches left edge */
+  margin-right: 0;   /* ensures it touches right edge */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -214,12 +216,18 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
 }
 
+/* =========================
+Footer Paragraphs
+========================= */
 .footer p {
   margin: 12px 0;
   font-size: 1.05rem;
   line-height: 1.6;
 }
 
+/* =========================
+Social Links Container
+========================= */
 .footer .social-links {
   margin: 25px 0;
   display: flex;
@@ -228,6 +236,9 @@ body {
   flex-wrap: wrap;
 }
 
+/* =========================
+Social Link Icons
+========================= */
 .footer .social-links a {
   display: flex;
   align-items: center;
@@ -251,7 +262,7 @@ body {
 }
 
 .footer .social-links a i {
-  pointer-events: none; /* ensures the icon itself doesn't block hover */
+  pointer-events: none;
 }
 
 .footer .copyright {
@@ -259,17 +270,4 @@ body {
   font-size: 0.95rem;
   color: #9aa7f0;
   letter-spacing: 0.5px;
-}
-
-/* Responsive Footer */
-@media (max-width: 600px) {
-  .footer {
-    padding: 15px 5px;
-  }
-
-  .footer .social-links a {
-    width: 60px;
-    height: 45px;
-    font-size: 1.2rem;
-  }
 }
