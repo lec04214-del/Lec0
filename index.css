@@ -198,86 +198,78 @@ body {
 ========================= */
 .footer {
   margin-top: 40px;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #0d0f2b, #020617); /* elegant dark gradient */
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #0d0f2b, #020617);
   color: #cbd5f5;
   text-align: center;
-  border-radius: 16px;
+  border-radius: 20px;
   width: 100%;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .footer:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
 }
 
-/* =========================
-   Footer Paragraphs
-========================= */
 .footer p {
-  margin: 10px 0;
-  font-size: 1rem;
-  line-height: 1.5;
+  margin: 12px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
-/* =========================
-   Social Links Container
-========================= */
 .footer .social-links {
-  margin: 20px 0;
+  margin: 25px 0;
   display: flex;
   justify-content: center;
-  gap: 16px; /* space between icons */
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
-/* =========================
-   Social Link Icons
-========================= */
 .footer .social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
-  background: #1f2340;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  background: linear-gradient(135deg, #1f2340, #2e3a63);
   color: #7f9cf5;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
+  font-size: 1.4rem;
+  transition: all 0.4s ease;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .footer .social-links a:hover {
-  background: #7f9cf5;
+  background: linear-gradient(135deg, #7f9cf5, #5a6fe0);
   color: #fff;
-  transform: scale(1.15) rotate(10deg);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(1.2) rotate(10deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-/* =========================
-   Footer Copyright
-========================= */
+.footer .social-links a i {
+  pointer-events: none; /* ensures the icon itself doesn't block hover */
+}
+
 .footer .copyright {
-  margin-top: 20px;
-  font-size: 0.9rem;
+  margin-top: 25px;
+  font-size: 0.95rem;
   color: #9aa7f0;
+  letter-spacing: 0.5px;
 }
 
-/* =========================
-   Responsive Footer
-========================= */
+/* Responsive Footer */
 @media (max-width: 600px) {
   .footer {
-    padding: 30px 15px;
+    padding: 35px 15px;
   }
 
   .footer .social-links a {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
   }
 }
